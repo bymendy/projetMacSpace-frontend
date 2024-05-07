@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var mainListDiv = document.getElementById('mainListDiv');
 
     if (navTrigger && mainListDiv) {
-        navTrigger.addEventListener('click', function() {
+        navTrigger.addEventListener('click', function(event) {
+            event.preventDefault(); // Empêche le comportement par défaut du lien si navTrigger est un lien
+
             // Toggle la classe 'active' sur l'élément navTrigger
             navTrigger.classList.toggle('active');
 

@@ -1,0 +1,171 @@
+/* REGLAGES GLOBAL  */
+
+/* Import de la police Google Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+/* Réinitialisation des styles de base */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    /* Pour une meilleure gestion des unités rem */
+}
+
+/* Section Haut de Section */
+.container-hautdesection {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    padding: 100px 0;
+    margin: 3rem;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.content-block {
+    flex: 1;
+    margin: 50 10px;
+    padding: 20px;
+}
+
+.content-block h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.content-block p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+img.imgappli {
+
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Nav */
+
+.navbar {
+    background-color: #ffffff;
+    border-top: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 30px 0;
+    margin-top: -168px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    margin-left: 20px;
+    position: relative;
+}
+
+.menu-item:hover {
+    color: #e36b0d;
+}
+
+.menu-item:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+}
+
+/* Section Informations */
+.informationsappli {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bloc50 {
+    width: 50%;
+    padding: 20px;
+}
+.bloc51 {
+    width: 50%;
+    padding: 70px;
+}
+.imgappli img {
+    max-width: 100%;
+    height: auto;
+}
+
+.experience {
+    color: #00226A;
+    font-size: 16px;
+}
+
+.titremacspace {
+    color: #e36b0d;
+    font-size: 26px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.asavoir {
+    margin-bottom: 20px;
+}
+
+.fonctionnalites {
+    margin-bottom: 20px;
+}
+
+.fonctionnalites ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.fonctionnalites ul li {
+    margin-bottom: 10px;
+}
+
+/* MEDIA QUERIES */
+
+/* Pour que l'image effectue un flex-wrap wrap en dessous de 980px de taille d'écran */
+@media screen and (max-width: 980px) {
+    .content-block {
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+    .bloc51 {
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+    .bloc50 {
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+}

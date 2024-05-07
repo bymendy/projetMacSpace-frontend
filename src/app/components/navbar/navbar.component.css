@@ -16,9 +16,11 @@ body {
 .nav {
     width: 100%;
     height: 65px;
+    margin-bottom: 80px;
     position: fixed;
     line-height: 65px;
     text-align: center;
+    box-shadow: #000;
 }
 
 .nav div.logo {
@@ -26,9 +28,12 @@ body {
     width: auto;
     height: auto;
     padding-left: 1rem;
-	margin-top: -40px;
+	margin-top: -30px;
 }
-
+/* Logo */
+.nav .logo {
+    max-width: 150px; /* Taille maximale du logo */
+}
 .nav div.logo img {
     max-width: 250px; /* Réduire la taille de l'image du logo à 200px */
 }
@@ -81,7 +86,7 @@ body {
 .home {
     width: 100%;
     height: 100vh;
-    background-image: url(https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80);
+    /* background-image: url('img/banniere_ms.jpg'); */
     background-position: center top;
 	background-size:cover;
 }
@@ -91,8 +96,8 @@ body {
 }
 
 .nav {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
@@ -106,7 +111,7 @@ body {
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:990px) {
     .navTrigger {
         display: block;
     }
@@ -343,12 +348,12 @@ body {
 
 .affix {
     padding: 50px;
-    background-color: #fff;
+    margin-top: -50px;
+    background-color:  rgb(242, 128, 15);
+    box-shadow: rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Ajoute une ombre de boîte avec décalage horizontal de 0px, décalage vertical de 0px, flou de 10px et couleur noire semi-transparente */
+
 }
-
-
-
-
 
 
 .myH2 {
@@ -366,3 +371,4 @@ body {
 		padding:2%;
 	}
 }
+
