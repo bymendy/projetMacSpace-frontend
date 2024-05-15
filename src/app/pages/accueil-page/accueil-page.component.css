@@ -59,6 +59,9 @@ img.imgappli {
     border-bottom: 1px solid #c0c0c0;
     padding: 30px 0;
     margin-top: -168px;
+    background-color:  rgb(245, 245, 245);
+    box-shadow: rgb(173, 173, 173);
+    box-shadow: 0px 0px 10px rgba(143, 142, 142, 0.5);
 }
 
 .container {
@@ -117,6 +120,9 @@ img.imgappli {
 .bloc51 {
     width: 50%;
     padding: 70px;
+    background-color:  rgb(255, 255, 255);
+    box-shadow: rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Ajoute une ombre de boîte avec décalage horizontal de 0px, décalage vertical de 0px, flou de 10px et couleur noire semi-transparente */
 }
 .imgappli img {
     max-width: 100%;

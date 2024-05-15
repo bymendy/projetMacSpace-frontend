@@ -1,5 +1,9 @@
+a{
+    text-decoration: none;
+    color: #e36b0d;
+}
 .footer {
-    background-color: #5E5D5D;
+    background-color: #222222;
     color: #FFFFFF;
     padding: 30px;
     text-align: center;
@@ -14,7 +18,12 @@
     flex: 1;
     margin-right: 20px;
 }
-
+.bloc2 {
+    flex: 1;
+    margin-right: 20px;
+}
+h3 {
+font-size: 22px;}
 .bloc h3 {
     font-weight: bold;
 }
@@ -41,7 +50,11 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+.reseaux-sociaux li a:hover {
 
+    background-color: #e36b0d;
+
+}
 .lien-footer {
     margin-top: 20px;
 }
@@ -52,5 +65,32 @@
 }
 
 .lien-footer a:hover {
-    color: #5E5D5D;
+    color: #e36b0d;
 }
+
+ a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 980px) {
+    section .bloc {
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+    section .bloc1 {
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+    section .bloc2 {
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+    .lien-footer{
+        flex: 0 0 100%; /* Spécifiez que chaque élément doit occuper toute la largeur de la ligne */
+        max-width: 100%;
+    }
+}
+
