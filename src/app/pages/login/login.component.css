@@ -1,0 +1,90 @@
+/* GLOBAL SETTINGS */
+
+.content {
+    padding: 100px 0;
+    margin: 3rem;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* FORMULAIRE */
+
+form {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+    min-width: 300px;
+  }
+  form h1{
+    color: #e36b0d;
+    text-align:center;
+  }
+  form .social-media{
+    margin-top: -10px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  form p.choose-email{
+    text-align:center;
+  }
+
+  form .inputs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  form .inputs input[type='email'], input[type='password']{
+    padding: 15px;
+    border:none;
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    outline:none;
+    margin-bottom: 15px;
+  }
+  form p.inscription{
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #878787;
+  }
+  form p.inscription span{
+    color: #e36b0d;
+  }
+  form p.inscription span:hover{
+    color: #000;
+  }
+/*  Icones Reseau sociaux */
+  form .social-media p{
+    padding: 5px;
+    width: 40px;
+    margin-left: 10px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    text-align: center;
+    cursor:pointer;
+    color: #000;
+  }
+
+  form .social-media p:hover{
+    background-color: #e36b0d;
+    color: #fff;
+    border: 1px solid #ffffff;
+}
+
+  /* Boutton se connecter */
+  form button{
+    padding: 15px 25px;
+    border-radius: 5px;
+    border:none;
+    font-size: 15px;
+    color: #fff;
+    background-color: #e36b0d;
+    outline:none;
+    cursor:pointer;
+  }
+
+  form button:hover{
+    background-color: #000;
+  }

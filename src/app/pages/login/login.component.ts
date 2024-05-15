@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+
 @Component({
-  selector: 'app-clients',
+  selector: 'app-login',
   standalone: true,
   imports: [
 
     NavbarComponent,
     FooterComponent,
-
   ],
-  templateUrl: './clients.component.html',
-  styleUrl: './clients.component.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class ClientsComponent {
+export class LoginComponent {
 
 }
