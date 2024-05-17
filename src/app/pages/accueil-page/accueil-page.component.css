@@ -158,6 +158,10 @@ img.imgappli {
     margin-bottom: 10px;
 }
 
+.macspaceoffer{
+    font-size: 18px;
+    text-shadow: #000000;
+}
 /* MEDIA QUERIES */
 
 /* Pour que l'image effectue un flex-wrap wrap en dessous de 980px de taille d'écran */
