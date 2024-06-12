@@ -1,1 +1,120 @@
-<p>stocks works!</p>
+<app-navbar></app-navbar>
+
+<section class="content">
+  <div class="container mt-5">
+    <h2 class="mb-4">Gestion des Stocks</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-primary">Ajouter un produit</button>
+    </div>
+
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Quantité en Stock</th>
+          <th>Prix</th>
+          <th>Catégorie</th>
+          <th>Fournisseur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>id</td>
+          <td>nom</td>
+          <td>quantiteStock</td>
+          <td>prix</td>
+          <td>categorie</td>
+          <td>fournisseur</td>
+          <td>
+            <button class="btn btn-info btn-sm">Éditer</button>
+            <button class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal pour ajouter/éditer un produit -->
+    <div
+      class="modal fade"
+      id="produitModal"
+      tabindex="-1"
+      aria-labelledby="produitModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="produitModalLabel"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nom"
+                  name="nom"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="quantiteStock" class="form-label"
+                  >Quantité en Stock</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="quantiteStock"
+                  name="quantiteStock"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="prix" class="form-label">Prix</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="prix"
+                  name="prix"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="categorie" class="form-label">Catégorie</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="categorie"
+                  name="categorie"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="fournisseur" class="form-label">Fournisseur</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fournisseur"
+                  name="fournisseur"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

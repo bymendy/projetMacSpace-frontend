@@ -1,1 +1,34 @@
-<p>rapports works!</p>
+<app-navbar></app-navbar>
+
+<section class="content">
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Historique des Interventions</h2>
+
+    <!-- Liste des historiques d'interventions -->
+    <div class="card">
+      <div class="card-header">Rapports d'Interventions</div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Détails</th>
+              <th scope="col">Intervention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Les lignes des historiques d'interventions seront insérées ici par JavaScript -->
+            <tr th:each="historique : ${historiques}">
+              <td
+                th:text="${#dates.format(historique.dateHeureIntervention, 'dd/MM/yyyy HH:mm')}"
+              ></td>
+              <td th:text="${historique.detailsIntervention}"></td>
+              <td th:text="${historique.intervention.type}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
