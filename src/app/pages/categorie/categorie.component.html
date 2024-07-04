@@ -1,0 +1,25 @@
+<div class="col container">
+    <div class="row m-3">
+      <div class="col-md-8 p-0">
+        <h1> Liste des Categories</h1>
+      </div>
+      <div class="col-md-4 text-right">
+        <app-button-action (clickEvent)="nouvelleCategorie()"></app-button-action>
+      </div>
+    </div>
+    <div class="col m-3">
+      <!-- App -->
+      <div class="row custom-border mb-3 p-3">
+        <div class="col-md-3 border-right" >
+            Code Categorie
+        </div>
+        <div class="col-md-3" >
+            Description
+        </div>
+
+      </div>
+    </div>
+    <div class="row text-center mb-3">
+      <app-pagination></app-pagination>
+    </div>
+  </div>

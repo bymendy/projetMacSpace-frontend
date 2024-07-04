@@ -43,13 +43,13 @@ export class MenuComponent implements OnInit {
           id: '21',
           titre: 'Produits',
           icon: 'fas fa-boxes',
-          url: '',
+          url: 'produits',
         },
         {
           id: '22',
           titre: 'Mouvements du Stock',
           icon: 'fab fa-stack-overflow',
-          url: '',
+          url: 'mvtstk',
         }
       ]
     },
@@ -63,13 +63,13 @@ export class MenuComponent implements OnInit {
           id: '31',
           titre: 'Clients',
           icon: 'fas fa-users',
-          url: '',
+          url: 'clients',
         },
         {
           id: '32',
           titre: 'Interventions clients',
           icon: 'fa-solid fa-screwdriver-wrench',
-          url: '',
+          url: 'interventions',
         }
       ]
     },
@@ -83,13 +83,13 @@ export class MenuComponent implements OnInit {
           id: '41',
           titre: 'Fournisseurs',
           icon: 'fas fa-truck',
-          url: '',
+          url: 'fournisseurs',
         },
         {
           id: '42',
           titre: 'Commandes fournisseurs',
           icon: 'fa-brands fa-product-hunt',
-          url: '',
+          url: 'commandefournisseurs',
         }
       ]
     },
@@ -103,7 +103,7 @@ export class MenuComponent implements OnInit {
           id: '51',
           titre: 'Categorie',
           icon: 'fa-solid fa-list',
-          url: '',
+          url: 'categorie',
         },
         {
           id: '52',

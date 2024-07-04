@@ -1,0 +1,63 @@
+.border-right{
+    border-right: solid 2px #e4e5e6;
+}
+.custom-border{
+    border: solid 2px #e4e5e6 ;
+    border-radius: 5px;
+}
+
+.orange-color{
+    color: #e36b0d;
+}
+
+/* CSS Global Styles */
+.custom-border {
+    border: 2px solid #9ca1a6;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Mobile Devices */
+  @media (max-width: 767.98px) {
+    .border-right {
+      border-right: none;
+    }
+    
+    .border-right-mobile {
+      border-right: 1px solid #ddd;
+    }
+    
+    .mb-2 {
+      margin-bottom: 15px;
+    }
+  }
+  
+  /* Tablets */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .border-right {
+      border-right: 1px solid #ddd;
+    }
+    
+    .border-right-mobile {
+      border-right: none;
+    }
+    
+    .mb-2 {
+      margin-bottom: 15px;
+    }
+  }
+  
+  /* Desktops */
+  @media (min-width: 992px) {
+    .border-right {
+      border-right: 2px solid #ddd;
+    }
+    
+    .border-right-mobile {
+      border-right: none;
+    }
+    
+    .mb-2 {
+      margin-bottom: 15px;
+    }
+  }

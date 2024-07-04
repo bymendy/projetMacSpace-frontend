@@ -1,0 +1,13 @@
+/* Optionnel, pour ajuster l'espacement entre les boutons */
+.btn {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.btn:last-child {
+    margin-right: 0; /* Remove the right margin from the last button */
+}
+
+
+.orange-color {
+    color: orange; /* Adjust this color as needed */
+}

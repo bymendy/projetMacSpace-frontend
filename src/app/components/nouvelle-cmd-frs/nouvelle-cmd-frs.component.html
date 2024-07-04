@@ -1,0 +1,124 @@
+<!-- NOUVELLE COMMANDE FOURNISSEURS -->
+<div class="container mb-3">
+  <div class="row custom-border p-3">
+    <div class="col-12 mb-1">
+      <h2>&nbsp; Nouvelle commande</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-5 border-right">
+        <!-- Formulaire numero 1 -->
+        <form>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Code commande"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Date commande"
+            />
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Selectionner une categorie</option>
+              <option>Catégorie 2</option>
+              <option>Catégorie 3</option>
+              <option>Catégorie 4</option>
+              <option>Catégorie 5</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <!-- Informations commande -->
+      <div class="col-md-5 border-right">
+        <!-- Nom du fournisseur -->
+        <div class="row mb-2 align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-info-circle orange-color"></i>
+          </div>
+          <div class="col">Nom</div>
+        </div>
+        <!-- Nom de l'entreprise -->
+        <div class="row mb-2 align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-info-circle orange-color"></i>
+          </div>
+          <div class="col">Entreprise</div>
+        </div>
+        <!-- Numero de telephone -->
+        <div class="row mb-2 align-items-center">
+          <div class="col-auto">
+            <i class="fa-solid fa-phone orange-color"></i>
+          </div>
+          <div class="col">Numero de Telephone</div>
+        </div>
+        <!-- ETAT -->
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-cart-arrow-down orange-color"></i>
+          </div>
+          <div class="col">EN PREPARATION</div>
+        </div>
+      </div>
+      
+      <div class="col-md-2 text-center">
+        <!-- Image -->
+        <img
+          src="assets/img/rapido-delivry.avif"
+          class="rounded-circle img-fluid mt-2"
+          width="200px"
+          height="200px"
+          alt="Fournisseur Image"
+        />
+      </div>
+    </div>
+  </div>
+
+<!-- Formulaire numero 2 -->
+<div class="row mt-2 custom-border ">
+  <div class="col-12">
+    <form class="d-flex">
+      <div class="form-group mr-2 p-1">
+        <input type="text" class="form-control" placeholder="Code Produit">
+      </div>
+      <div class="form-group mr-2 p-1">
+        <input type="text" class="form-control" placeholder="Quantite">
+      </div>
+      <div class="form-group p-1">
+        <input type="text" class="form-control" placeholder="Prix Unitaire">
+      </div>
+      <div class="col p-1">
+        <button type="button" class="btn btn-success"><i class="fas fa-plus"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- APP -->
+<div class="row mt-2 p-3 custom-border" style=" max-height: 300px; overflow-y: scroll;">
+  <app-cmd-details></app-cmd-details>
+  <app-cmd-details></app-cmd-details>
+  <app-cmd-details></app-cmd-details>
+  <app-cmd-details></app-cmd-details>
+  <app-cmd-details></app-cmd-details>
+  <app-cmd-details></app-cmd-details>
+  <app-cmd-details></app-cmd-details>
+</div>
+<!-- Total Commande -->
+<div class="col mt-2 p-3 custom-border d-flex justify-content-end">
+  <h3>Total de la commande : 2504€</h3>
+</div>
+
+  <!-- Boutton Enregistrer et Annuler -->
+  <div class="col-md-12 d-flex justify-content-end mt-3">
+    <button class="btn btn-danger mr-3">
+      <i class="fas fa-ban"></i>&nbsp; Annuler
+    </button>
+    <button class="btn btn-primary">
+      <i class="fas fa-save"></i>&nbsp; Enregistrer
+    </button>
+  </div>
+</div>
