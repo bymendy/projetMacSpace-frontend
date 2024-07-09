@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './frs-nouveau.component.html',
   styleUrl: './frs-nouveau.component.css'
 })
+
 export class FrsNouveauComponent implements OnInit {
 
   origin = '';

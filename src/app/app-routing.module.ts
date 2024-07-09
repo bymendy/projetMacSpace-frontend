@@ -28,120 +28,76 @@ import { NouvelUtilisateurComponent } from './pages/utilisateurs/nouvel-utilisat
 import { UtilisateursComponent } from './pages/utilisateurs/utilisateurs.component';
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
-  { path: "", 
+  { path: 'login', component: LoginComponent },
+  { 
+    path: '', 
     component: DashboardComponent, 
-    children:[
-      {path:'statistiques',  
-      component:StatistiquesComponent
-    },
-    {
-      path: 'produits',
-      component: ProduitsComponent,
-      data: {
-        origin: 'produits'
-      }
-    },
-    {
-      path: 'nouveauproduit',
-      component: NouveauProduitComponent,
-      data: {
-        origin: 'produits'
-      }
-    },
-    {
-      path: 'mvtstk',
-      component: PageMvtstkComponent
-    },
-    {
-      path: 'clients',
-      component: ClientsComponent,
-      data: {
-        origin: 'clients'
-      }
-    },
-    {
-      path: 'nouveauclient',
-      component: NouveauCltFrsComponent,
-      data: {
-        origin: 'clients'
-      }
-    },
-    {
-      path: 'fournisseurs',
-      component: FournisseursComponent,
-      data: {
-        origin: 'fournisseurs'
-      }
-    },
-    {
-      path: 'nouveaufournisseur',
-      component: FrsNouveauComponent,
-      data: {
-        origin: 'fournisseurs'
-      }
-    },
-    {
-      path: 'commandefournisseurs',
-      component: CmdFournisseursComponent
-    },
-    {
-      path: 'nouvellecommandefournisseurs',
-      component: NouvelleCmdFrsComponent
-    },
-    {
-      path: 'interventions',
-      component: InterventionsComponent
-    },
-    {
-      path: 'nouvelleinterventionclient',
-      component: NouvelleInterComponent
-    },
-    {
-      path: 'categorie',
-      component: CategorieComponent,
-      data: {
-        origin: 'categorie'
-      }
-    },
-    {
-      path: 'nouvellecategorie',
-      component: NouvelleCategorieComponent,
-      data: {
-        origin: 'categorie'
-      }
-    },
-    {
-      path: 'utilisateur',
-      component: UtilisateursComponent,
-      data: {
-        origin: 'utilisateur'
-      }
-    },
-    {
-      path: 'nouvelutilisateur',
-      component: NouvelUtilisateurComponent,
-      data: {
-        origin: 'utilisateur'
-      }
-    },
-    {
-      path: 'profil',
-      component: ProfilComponent
-    },
-    {
-      path: 'changemdpprofil',
-      component: ChangeMdpProfilComponent
-    }
-
-  ] 
-},
-  { path: "menu", component: MenuComponent },
-
-  { path: "rapports", component: RapportsComponent },
-  { path: "stocks", component: StocksComponent },
-  { path: "accueil", component: AccueilPageComponent },
-  { path: "**", component: NotfoundPageComponent }
+    children: [
+      { path: 'statistiques', component: StatistiquesComponent },
+      { 
+        path: 'produits', 
+        component: ProduitsComponent,
+        data: { origin: 'produits' }
+      },
+      { 
+        path: 'nouveauproduit', 
+        component: NouveauProduitComponent,
+        data: { origin: 'produits' }
+      },
+      { path: 'mvtstk', component: PageMvtstkComponent },
+      { 
+        path: 'clients', 
+        component: ClientsComponent,
+        data: { origin: 'clients' }
+      },
+      { 
+        path: 'nouveauclient', 
+        component: NouveauCltFrsComponent,
+        data: { origin: 'clients' }
+      },
+      { 
+        path: 'fournisseurs', 
+        component: FournisseursComponent,
+        data: { origin: 'fournisseurs' }
+      },
+      { 
+        path: 'nouveaufournisseur', 
+        component: FrsNouveauComponent,
+        data: { origin: 'fournisseurs' }
+      },
+      { path: 'commandefournisseurs', component: CmdFournisseursComponent },
+      { path: 'nouvellecommandefournisseurs', component: NouvelleCmdFrsComponent },
+      { path: 'interventions', component: InterventionsComponent },
+      { path: 'nouvelleinterventionclient', component: NouvelleInterComponent },
+      { 
+        path: 'categorie', 
+        component: CategorieComponent,
+        data: { origin: 'categorie' }
+      },
+      { 
+        path: 'nouvellecategorie', 
+        component: NouvelleCategorieComponent,
+        data: { origin: 'categorie' }
+      },
+      { 
+        path: 'utilisateur', 
+        component: UtilisateursComponent,
+        data: { origin: 'utilisateur' }
+      },
+      { 
+        path: 'nouvelutilisateur', 
+        component: NouvelUtilisateurComponent,
+        data: { origin: 'utilisateur' }
+      },
+      { path: 'profil', component: ProfilComponent },
+      { path: 'changemdpprofil', component: ChangeMdpProfilComponent }
+    ]
+  },
+  { path: 'menu', component: MenuComponent },
+  { path: 'rapports', component: RapportsComponent },
+  { path: 'stocks', component: StocksComponent },
+  { path: 'accueil', component: AccueilPageComponent },
+  { path: '**', component: NotfoundPageComponent }
 ];
 
 @NgModule({
