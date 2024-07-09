@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonActionComponent } from '../../components/button-action/button-action.component';
@@ -12,7 +13,8 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
     ButtonActionComponent,
     PaginationComponent,
     InterClientsComponent,
-    InterDetailsComponent
+    InterDetailsComponent,
+    CommonModule
   ],
   templateUrl: './interventions.component.html',
   styleUrl: './interventions.component.css'

@@ -1,14 +1,14 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-nouveau-clt-frs',
+  selector: 'app-nouvelle-categorie',
   standalone: true,
   imports: [],
-  templateUrl: './nouveau-clt-frs.component.html',
-  styleUrls: ['./nouveau-clt-frs.component.css']
+  templateUrl: './nouvelle-categorie.component.html',
+  styleUrls: ['./nouvelle-categorie.component.css']
 })
-export class NouveauCltFrsComponent implements OnInit {
+export class NouvelleCategorieComponent implements OnInit {
 
   origin = '';
 
@@ -29,11 +29,7 @@ export class NouveauCltFrsComponent implements OnInit {
     // Logique de sauvegarde
   }
 
-  cancelClick(): void {
-    if (this.origin === 'clients') {
-      this.router.navigate(['clients']);
-    } else if (this.origin === 'fournisseurs') {
-      this.router.navigate(['fournisseurs']);
-    }
+  cancel(): void {
+    this.router.navigate(['categorie']); // Rediriger toujours vers la page 'categorie'
   }
 }

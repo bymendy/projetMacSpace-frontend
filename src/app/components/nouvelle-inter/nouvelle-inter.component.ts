@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InterDetailsComponent } from '../inter-details/inter-details.component';
 
 @Component({
@@ -10,6 +11,18 @@ import { InterDetailsComponent } from '../inter-details/inter-details.component'
   templateUrl: './nouvelle-inter.component.html',
   styleUrl: './nouvelle-inter.component.css'
 })
-export class NouvelleInterComponent {
+export class NouvelleInterComponent implements OnInit {
 
+  constructor(
+    private router: Router
+  ) { } 
+
+  ngOnInit(): void {
+      
+  }
+  
+  cancel(): void {
+    this.router.navigate(['interventions']);
+  }
 }
+

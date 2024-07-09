@@ -1,13 +1,24 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-action',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './button-action.component.html',
   styleUrl: './button-action.component.css'
 })
 export class ButtonActionComponent implements OnInit {
+
+  @Input()
+  isNouveauVisible = true;
+  @Input()
+  isExporterVisible = true;
+  @Input()
+  isImporterVisible = true;
+
 
   @Output()
   clickEvent = new EventEmitter();

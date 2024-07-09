@@ -1,29 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';  // Assurez-vous d'importer RouterModule
+
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { AccueilPageComponent } from './pages/accueil-page/accueil-page.component';
-import { LoginComponent } from './pages/login/login.component';
-import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
-import { RapportsComponent } from './pages/rapports/rapports.component';
-import { StatistiquesComponent } from './pages/statistiques/statistiques.component';
-import { StocksComponent } from './pages/stocks/stocks.component';
+import { ButtonActionComponent } from './components/button-action/button-action.component';
+import { HeaderDashboardComponent } from './components/header-dashboard/header-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    AccueilPageComponent,
-    LoginComponent,
-    StatistiquesComponent,
-    NotfoundPageComponent,
-    RapportsComponent,
-    StocksComponent
+    HeaderDashboardComponent,
+    ButtonActionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot([]),
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

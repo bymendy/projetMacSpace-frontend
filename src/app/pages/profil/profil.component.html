@@ -1,0 +1,50 @@
+<!-- PAGE PROFIL  -->
+<div class="container row m-1">
+  <div class="card col-md-6 text-center ">
+    <div class="col">
+      <!-- Image USER -->
+      <div class="mb-3 mt-3">
+        <img
+          src="assets/img/user-icone.png"
+          alt="Icone User"
+          width="200px"
+          height="200px"
+        />
+      </div>
+      <!-- Infos du User -->
+      <div class="mb-3">
+        <h2>Nom Prenom</h2>
+        <small class="form-text text-muted">Adresse, Ville, 91600</small>
+      </div>
+      <!-- Boutton -->
+      <div class="col d-flex justify-content-between mb-3">
+        <button class="btn btn-primary"><i class="fas fa-pencil-alt"></i> &nbsp; Modifier le profil</button>
+        <button class="btn btn-warning"  (click)="modifierMotDePasse()"><i class="fas fa-lock"></i> &nbsp;Changer le mot de passe</button>
+      </div>
+    </div>
+  </div>
+  <!-- Tableau des infos personnelles -->
+  <div class="card col-md-6 ">
+    <table class="table">
+
+        <tbody>
+          <tr>
+            <th scope="row">Nom complet</th>
+            <td>Nom Prenom</td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td>adresseemail{{ "@" }}macsecurite.com</td>
+          </tr>
+          <tr>
+            <th scope="row">Telephone</th>
+            <td>0102030405</td>
+          </tr>
+          <tr>
+            <th scope="row">Adresse</th>
+            <td>Adresse, Ville, 91600</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

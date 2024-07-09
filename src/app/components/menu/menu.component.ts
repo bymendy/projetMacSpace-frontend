@@ -109,12 +109,13 @@ export class MenuComponent implements OnInit {
           id: '52',
           titre: 'Utilisateurs',
           icon: 'fas fa-users-cog',
-          url: '',
+          url: 'utilisateur',
         }
       ]
     }
   ];
-
+  
+  private lastSelectedMenu : Menu | undefined;
   constructor(
     private router: Router
   ) { }
@@ -122,7 +123,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void { 
 
   }
-  navigate(url?: string): void {
-    this.router.navigate([url]);
+  navigate(menu: Menu): void {
+    if (this.lastSelectedMenu){
+      this.lastSelectedMenu.active= false;
+    }
+    menu.active= true;
+    this.router.navigate([menu.url]);
+    this.lastSelectedMenu= menu;
   }
 }

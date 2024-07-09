@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonActionComponent } from '../../../components/button-action/button-action.component';
 import { DetailsMvtStkProduitsComponent } from '../../../components/details-mvt-stk-produits/details-mvt-stk-produits.component';
@@ -11,7 +12,8 @@ import { PaginationComponent } from '../../../components/pagination/pagination.c
     DetailsMvtStkProduitsComponent,
     DetailsMvtStkComponent, 
     ButtonActionComponent,
-    PaginationComponent
+    PaginationComponent,
+    CommonModule
   ],
   templateUrl: './page-mvtstk.component.html',
   styleUrl: './page-mvtstk.component.css'
