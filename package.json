@@ -6,7 +6,16 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "start:local": "npm run gs-api && ng serve -- --proxyConfig=proxy.conf.json",
+    "gs-api": "npm run gs-api:create-dist && npm run gs-api:download && npm run gs-api:extract && npm run gs-api:swagger-gen",
+    "gs-api:create-dist": "mkdir -p tools/swagger/dist && mkdir -p tools/swagger/src",
+    "gs-api:download": "xcopy /Y \"C:/wamp64/www/projetMacSpace-frontend/personal/courses/gestion de stock/resources/gestiondestock/target/gestiondestock-0.0.1-SNAPSHOT.jar\" \"tools/swagger/dist\" && xcopy /Y \"C:/wamp64/www/projetMacSpace-frontend/personal/courses/gestion de stock/resources/gestiondestock/target/swagger.json\" \"tools/swagger/src\"",
+    "gs-api:extract": "node ./tools/swagger/src/processSwagger.js",
+    "gs-api:swagger-gen": "npx ng-swagger-gen -i ./tools/swagger/src/swagger.json -o src/gs-api/src"
+
   },
   "private": true,
   "dependencies": {

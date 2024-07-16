@@ -26,78 +26,136 @@ import { StatistiquesComponent } from './pages/statistiques/statistiques.compone
 import { StocksComponent } from './pages/stocks/stocks.component';
 import { NouvelUtilisateurComponent } from './pages/utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
 import { UtilisateursComponent } from './pages/utilisateurs/utilisateurs.component';
+import { ApplicationGuardService } from './services/guard/application-guard.service';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', 
+  component: LoginComponent 
+  },
+  // DASHBOARD
   { 
     path: '', 
     component: DashboardComponent, 
     children: [
-      { path: 'statistiques', component: StatistiquesComponent },
+      { path: 'statistiques', 
+      component: StatistiquesComponent,
+      canActivate: [ApplicationGuardService]
+      },
+      
       { 
         path: 'produits', 
         component: ProduitsComponent,
-        data: { origin: 'produits' }
+        data: { origin: 'produits' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'nouveauproduit', 
         component: NouveauProduitComponent,
-        data: { origin: 'produits' }
+        data: { origin: 'produits' },
+        canActivate: [ApplicationGuardService]
       },
-      { path: 'mvtstk', component: PageMvtstkComponent },
+      { path: 'mvtstk', 
+      component: PageMvtstkComponent,
+      canActivate: [ApplicationGuardService] 
+      },
       { 
         path: 'clients', 
         component: ClientsComponent,
-        data: { origin: 'clients' }
+        data: { origin: 'clients' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'nouveauclient', 
         component: NouveauCltFrsComponent,
-        data: { origin: 'clients' }
+        data: { origin: 'clients' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'fournisseurs', 
         component: FournisseursComponent,
-        data: { origin: 'fournisseurs' }
+        data: { origin: 'fournisseurs' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'nouveaufournisseur', 
         component: FrsNouveauComponent,
-        data: { origin: 'fournisseurs' }
+        data: { origin: 'fournisseurs' },
+        canActivate: [ApplicationGuardService]
       },
-      { path: 'commandefournisseurs', component: CmdFournisseursComponent },
-      { path: 'nouvellecommandefournisseurs', component: NouvelleCmdFrsComponent },
-      { path: 'interventions', component: InterventionsComponent },
-      { path: 'nouvelleinterventionclient', component: NouvelleInterComponent },
+      { path: 'commandefournisseurs', 
+      component: CmdFournisseursComponent,
+      canActivate: [ApplicationGuardService] 
+      },
+
+      { path: 'nouvellecommandefournisseurs', 
+      component: NouvelleCmdFrsComponent,
+      canActivate: [ApplicationGuardService] 
+      },
+      { path: 'interventions', 
+      component: InterventionsComponent,
+      canActivate: [ApplicationGuardService] 
+      },
+      { path: 'nouvelleinterventionclient', 
+      component: NouvelleInterComponent,
+      canActivate: [ApplicationGuardService] 
+      },
       { 
         path: 'categorie', 
         component: CategorieComponent,
-        data: { origin: 'categorie' }
+        data: { origin: 'categorie' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'nouvellecategorie', 
         component: NouvelleCategorieComponent,
-        data: { origin: 'categorie' }
+        data: { origin: 'categorie' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'utilisateur', 
         component: UtilisateursComponent,
-        data: { origin: 'utilisateur' }
+        data: { origin: 'utilisateur' },
+        canActivate: [ApplicationGuardService]
       },
       { 
         path: 'nouvelutilisateur', 
         component: NouvelUtilisateurComponent,
-        data: { origin: 'utilisateur' }
+        data: { origin: 'utilisateur' },
+        canActivate: [ApplicationGuardService]
       },
-      { path: 'profil', component: ProfilComponent },
-      { path: 'changemdpprofil', component: ChangeMdpProfilComponent }
+      { path: 'profil', 
+      component: ProfilComponent,
+      canActivate: [ApplicationGuardService] 
+      },
+      { path: 'changemdpprofil', 
+      component: ChangeMdpProfilComponent,
+      canActivate: [ApplicationGuardService] 
+      }
     ]
   },
-  { path: 'menu', component: MenuComponent },
-  { path: 'rapports', component: RapportsComponent },
-  { path: 'stocks', component: StocksComponent },
-  { path: 'accueil', component: AccueilPageComponent },
-  { path: '**', component: NotfoundPageComponent }
+  // Menu du Dashboard 
+  { path: 'menu', 
+  component: MenuComponent,
+  canActivate: [ApplicationGuardService] 
+  },
+  // Page raports
+  { path: 'rapports', 
+  component: RapportsComponent,
+  canActivate: [ApplicationGuardService] 
+  },
+  // Page Stocks
+  { path: 'stocks', 
+  component: StocksComponent,
+  canActivate: [ApplicationGuardService] 
+  },
+  // Page Accueil
+  { path: 'accueil', 
+  component: AccueilPageComponent 
+  },
+  // Page error 404
+  { path: '**', 
+  component: NotfoundPageComponent 
+  }
 ];
 
 @NgModule({

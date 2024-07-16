@@ -25,6 +25,7 @@ import { StatistiquesComponent } from './pages/statistiques/statistiques.compone
 import { StocksComponent } from './pages/stocks/stocks.component';
 import { NouvelUtilisateurComponent } from './pages/utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
 import { UtilisateursComponent } from './pages/utilisateurs/utilisateurs.component';
+import { ApplicationGuardService } from './services/guard/application-guard.service';
 
 export const routes: Routes = [
 
@@ -34,106 +35,124 @@ export const routes: Routes = [
         children:[
         {
             path:'statistiques',  
-            component:StatistiquesComponent
+            component:StatistiquesComponent,
+            canActivate: [ApplicationGuardService]
         },
         {
             path: 'produits',
             component: ProduitsComponent,
             data: {
               origin: 'produits'
-            }
+            },
+            canActivate: [ApplicationGuardService]
         },
         {
           path: 'nouveauproduit',
           component: NouveauProduitComponent,
           data: {
             origin: 'produits'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'mvtstk',
-          component: PageMvtstkComponent
+          component: PageMvtstkComponent,
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'clients',
           component: ClientsComponent,
           data: {
             origin: 'clients'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'nouveauclient',
           component: NouveauCltFrsComponent,
           data: {
             origin: 'clients'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'fournisseurs',
           component: FournisseursComponent,
           data: {
             origin: 'fournisseurs'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'nouveaufournisseur',
           component: FrsNouveauComponent,
           data: {
             origin: 'fournisseurs'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
             path: 'nouvellecommandefournisseurs',
-            component: NouvelleCmdFrsComponent
+            component: NouvelleCmdFrsComponent,
+            canActivate: [ApplicationGuardService]
         },
         
         {
             path: 'commandefournisseurs',
-            component: CmdFournisseursComponent
+            component: CmdFournisseursComponent,
+            canActivate: [ApplicationGuardService]
         },
         {
           path: 'interventions',
-          component: InterventionsComponent
+          component: InterventionsComponent,
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'nouvelleinterventionclient',
-          component: NouvelleInterComponent
+          component: NouvelleInterComponent,
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'categorie',
           component: CategorieComponent,
           data: {
             origin: 'categorie'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'nouvellecategorie',
           component: NouvelleCategorieComponent,
           data: {
             origin: 'categorie'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'utilisateur',
           component: UtilisateursComponent,
           data: {
             origin: 'utilisateur'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'nouvelutilisateur',
           component: NouvelUtilisateurComponent,
           data: {
             origin: 'utilisateur'
-          }
+          },
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'profil',
-          component: ProfilComponent
+          component: ProfilComponent,
+          canActivate: [ApplicationGuardService]
         },
         {
           path: 'changemdpprofil',
-          component: ChangeMdpProfilComponent
+          component: ChangeMdpProfilComponent,
+          canActivate: [ApplicationGuardService]
         }
     
     ]
@@ -142,19 +161,23 @@ export const routes: Routes = [
     
     {
         path: "menu", 
-        component: MenuComponent
+        component: MenuComponent,
+        canActivate: [ApplicationGuardService]
     },
     {
         path: "login", 
-        component: LoginComponent
+        component: LoginComponent,
+       
     },
     {
         path: "rapports", 
-        component: RapportsComponent
+        component: RapportsComponent,
+        canActivate: [ApplicationGuardService]
     },
     {
         path: "stocks", 
-        component: StocksComponent
+        component: StocksComponent,
+        canActivate: [ApplicationGuardService]
     },
 
     {
