@@ -35,14 +35,14 @@
                       <div class="form-group mt-2">
                         <label for="loginPassword" class="form-label">Mot de passe</label>
                         <!-- Champ de saisie pour le mot de passe de connexion -->
-                        <input type="password" id="loginPassword" class="form-control" placeholder="Mot de passe" formControlName="password">
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Mot de passe" formControlName="password" >
                         <!-- Affichage des erreurs de validation pour le mot de passe -->
                         <div *ngIf="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)" class="text-danger">
                           <div *ngIf="formLogin.controls['password'].errors?.['required']">Le mot de passe est requis.</div>
                         </div>
                       </div>
                       <!-- Bouton pour soumettre le formulaire de connexion -->
-                      <button type="submit" class="btn mt-4">Se connecter</button>
+                      <button type="submit" class="btn mt-4" (click)="submitLoginForm()">Se connecter</button>
                       <!-- Lien pour réinitialiser le mot de passe -->
                       <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Mot de passe oublié?</a></p>
                     </form>

@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit { // Implémente OnInit pour initi
   public isLoggedIn: boolean = false; // État de connexion de l'utilisateur
 
   // Injection du service UsersService et du service Router
-  constructor(private usersService: UsersService, private router: Router) {}
+  constructor(
+    private usersService: UsersService, 
+    private router: Router
+    ) {}
 
   // Méthode ngOnInit appelée à l'initialisation du composant
   ngOnInit(): void {

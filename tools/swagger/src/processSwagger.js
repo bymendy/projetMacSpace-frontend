@@ -1,27 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 
-// Chemin vers le fichier swagger.json
-const swaggerFilePath = path.resolve(__dirname, 'swagger.json');
+const swaggerPath = path.join(__dirname, 'swagger.json');
 
-// Fonction pour lire et traiter le fichier swagger.json
-function processSwagger(filePath) {
-  fs.readFile(filePath, 'utf8', (err, data) => {
+fs.readFile(swaggerPath, 'utf8', (err, data) => {
     if (err) {
-      console.error(`Erreur lors de la lecture du fichier ${filePath}:`, err);
-      return;
+        console.error('Erreur lors de la lecture du fichier:', err);
+        return;
     }
 
-    // Parse le contenu JSON
+    if (data.length === 0) {
+        console.error('Le fichier swagger.json est vide.');
+        return;
+    }
+
+    console.log('Contenu du fichier swagger.json:', data);
+
     try {
-      const swaggerData = JSON.parse(data);
-      console.log('Contenu du fichier swagger.json:', swaggerData);
-      // Ajoutez ici le traitement spécifique de votre fichier JSON
-    } catch (parseErr) {
-      console.error('Erreur lors de l\'analyse du JSON:', parseErr);
+        const swagger = JSON.parse(data);
+        console.log('Le JSON a été analysé avec succès.');
+        // Traitez le fichier swagger ici
+    } catch (parseError) {
+        console.error('Erreur lors de l\'analyse du JSON:', parseError);
     }
-  });
-}
-
-// Appel de la fonction pour traiter le fichier swagger.json
-processSwagger(swaggerFilePath);
+});
