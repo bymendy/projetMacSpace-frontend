@@ -6,7 +6,8 @@ export interface EntrepriseDto {
   description?: string;
   email?: string;
   id?: number;
-  nom?: string;
+  name?: string;
+  password?: string;
   numTel?: string;
   photo?: string;
   steWeb?: string;

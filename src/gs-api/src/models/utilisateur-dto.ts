@@ -8,7 +8,7 @@ export interface UtilisateurDto {
   email?: string;
   entreprise?: EntrepriseDto;
   id?: number;
-  moteDePasse?: string;
+  password?: string;
   nom?: string;
   photo?: string;
   prenom?: string;

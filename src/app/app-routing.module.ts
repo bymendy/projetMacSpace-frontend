@@ -35,6 +35,7 @@ const routes: Routes = [
   // DASHBOARD
   { 
     path: '', 
+    //path: 'dashboard', 
     component: DashboardComponent, 
     children: [
       { path: 'statistiques', 
@@ -148,8 +149,12 @@ const routes: Routes = [
   component: StocksComponent,
   canActivate: [ApplicationGuardService] 
   },
+
   // Page Accueil
-  { path: 'accueil', 
+
+  { 
+  path: 'accueil', 
+  //path: '', 
   component: AccueilPageComponent 
   },
   // Page error 404

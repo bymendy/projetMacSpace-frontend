@@ -2,7 +2,7 @@
 import { Category } from './category';
 import { LigneCommandeFournisseur } from './ligne-commande-fournisseur';
 import { LigneInterventionClient } from './ligne-intervention-client';
-import { LigneVente } from './ligne-vente';
+import { LigneIntervention } from './ligne-intervention';
 import { MvtStk } from './mvt-stk';
 export interface Produit {
   category?: Category;
@@ -14,7 +14,7 @@ export interface Produit {
   lastModifiedDate?: number;
   ligneCommandeFournisseurs?: Array<LigneCommandeFournisseur>;
   ligneInterventionClients?: Array<LigneInterventionClient>;
-  ligneVentes?: Array<LigneVente>;
+  ligneIntervention?: Array<LigneIntervention>;
   mvtStks?: Array<MvtStk>;
   photo?: string;
   prixUnitaireHt?: number;

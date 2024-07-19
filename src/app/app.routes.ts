@@ -30,8 +30,10 @@ import { ApplicationGuardService } from './services/guard/application-guard.serv
 export const routes: Routes = [
 
     {
-        path: "", 
+        path: '', 
+        //path: 'dashboard', 
         component: DashboardComponent,
+        canActivate: [ApplicationGuardService],
         children:[
         {
             path:'statistiques',  
@@ -181,8 +183,9 @@ export const routes: Routes = [
     },
 
     {
-        path: "accueil", 
-        component: AccueilPageComponent
+      path: 'accueil', 
+      //path: '', 
+      component: AccueilPageComponent
     },
     {
         path: "**", // 

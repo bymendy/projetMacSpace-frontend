@@ -7,16 +7,16 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { VentesDto } from '../models/ventes-dto';
+import { InterventionsDto } from '../models/interventions-dto';
 @Injectable({
   providedIn: 'root',
 })
-class VentesService extends __BaseService {
-  static readonly findAllPath = '/gestiondestock/v1/ventes/all';
-  static readonly savePath = '/gestiondestock/v1/ventes/create';
-  static readonly deletePath = '/gestiondestock/v1/ventes/delete/{idVente}';
-  static readonly findByCodePath = '/gestiondestock/v1/ventes/{codeVente}';
-  static readonly findByIdPath = '/gestiondestock/v1/ventes/{idVente}';
+class InterventionService extends __BaseService {
+  static readonly findAllPath = '/gestiondestock/v1/interventions/all';
+  static readonly savePath = '/gestiondestock/v1/interventions/create';
+  static readonly deletePath = '/gestiondestock/v1/interventions/delete/{idIntervention}';
+  static readonly findByCodePath = '/gestiondestock/v1/interventions/{codeIntervention}';
+  static readonly findByIdPath = '/gestiondestock/v1/interventions/{idIntervention}';
 
   constructor(
     config: __Configuration,
@@ -28,13 +28,13 @@ class VentesService extends __BaseService {
   /**
    * @return successful operation
    */
-  findAllResponse(): __Observable<__StrictHttpResponse<Array<VentesDto>>> {
+  findAllResponse(): __Observable<__StrictHttpResponse<Array<InterventionsDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gestiondestock/v1/ventes/all`,
+      this.rootUrl + `/gestiondestock/v1/interventions/all`,
       __body,
       {
         headers: __headers,
@@ -45,16 +45,16 @@ class VentesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<VentesDto>>;
+        return _r as __StrictHttpResponse<Array<InterventionsDto>>;
       })
     );
   }
   /**
    * @return successful operation
    */
-  findAll(): __Observable<Array<VentesDto>> {
+  findAll(): __Observable<Array<InterventionsDto>> {
     return this.findAllResponse().pipe(
-      __map(_r => _r.body as Array<VentesDto>)
+      __map(_r => _r.body as Array<InterventionsDto>)
     );
   }
 
@@ -62,14 +62,14 @@ class VentesService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveResponse(body?: VentesDto): __Observable<__StrictHttpResponse<VentesDto>> {
+  saveResponse(body?: InterventionsDto): __Observable<__StrictHttpResponse<InterventionsDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
     __body = body;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/gestiondestock/v1/ventes/create`,
+      this.rootUrl + `/gestiondestock/v1/interventions/create`,
       __body,
       {
         headers: __headers,
@@ -80,7 +80,7 @@ class VentesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<VentesDto>;
+        return _r as __StrictHttpResponse<InterventionsDto>;
       })
     );
   }
@@ -88,23 +88,23 @@ class VentesService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  save(body?: VentesDto): __Observable<VentesDto> {
+  save(body?: InterventionsDto): __Observable<InterventionsDto> {
     return this.saveResponse(body).pipe(
-      __map(_r => _r.body as VentesDto)
+      __map(_r => _r.body as InterventionsDto)
     );
   }
 
   /**
-   * @param idVente undefined
+   * @param idIntervention undefined
    */
-  deleteResponse(idVente: number): __Observable<__StrictHttpResponse<null>> {
+  deleteResponse(idIntervention: number): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/gestiondestock/v1/ventes/delete/${encodeURIComponent(String(idVente))}`,
+      this.rootUrl + `/gestiondestock/v1/interventions/delete/${encodeURIComponent(String(idIntervention))}`,
       __body,
       {
         headers: __headers,
@@ -120,26 +120,26 @@ class VentesService extends __BaseService {
     );
   }
   /**
-   * @param idVente undefined
+   * @param idIntervention undefined
    */
-  delete(idVente: number): __Observable<null> {
-    return this.deleteResponse(idVente).pipe(
+  delete(idIntervention: number): __Observable<null> {
+    return this.deleteResponse(idIntervention).pipe(
       __map(_r => _r.body as null)
     );
   }
 
   /**
-   * @param codeVente undefined
+   * @param codeIntervention undefined
    * @return successful operation
    */
-  findByCodeResponse(codeVente: string): __Observable<__StrictHttpResponse<VentesDto>> {
+  findByCodeResponse(codeIntervention: string): __Observable<__StrictHttpResponse<InterventionsDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gestiondestock/v1/ventes/${encodeURIComponent(String(codeVente))}`,
+      this.rootUrl + `/gestiondestock/v1/interventions/${encodeURIComponent(String(codeIntervention))}`,
       __body,
       {
         headers: __headers,
@@ -150,32 +150,32 @@ class VentesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<VentesDto>;
+        return _r as __StrictHttpResponse<InterventionsDto>;
       })
     );
   }
   /**
-   * @param codeVente undefined
+   * @param codeIntervention undefined
    * @return successful operation
    */
-  findByCode(codeVente: string): __Observable<VentesDto> {
-    return this.findByCodeResponse(codeVente).pipe(
-      __map(_r => _r.body as VentesDto)
+  findByCode(codeIntervention: string): __Observable<InterventionsDto> {
+    return this.findByCodeResponse(codeIntervention).pipe(
+      __map(_r => _r.body as InterventionsDto)
     );
   }
 
   /**
-   * @param idVente undefined
+   * @param idIntervention undefined
    * @return successful operation
    */
-  findByIdResponse(idVente: number): __Observable<__StrictHttpResponse<VentesDto>> {
+  findByIdResponse(idIntervention: number): __Observable<__StrictHttpResponse<InterventionsDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gestiondestock/v1/ventes/${encodeURIComponent(String(idVente))}`,
+      this.rootUrl + `/gestiondestock/v1/interventions/${encodeURIComponent(String(idIntervention))}`,
       __body,
       {
         headers: __headers,
@@ -186,22 +186,22 @@ class VentesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<VentesDto>;
+        return _r as __StrictHttpResponse<InterventionsDto>;
       })
     );
   }
   /**
-   * @param idVente undefined
+   * @param idIntervention undefined
    * @return successful operation
    */
-  findById(idVente: number): __Observable<VentesDto> {
-    return this.findByIdResponse(idVente).pipe(
-      __map(_r => _r.body as VentesDto)
+  findById(idIntervention: number): __Observable<InterventionsDto> {
+    return this.findByIdResponse(idIntervention).pipe(
+      __map(_r => _r.body as InterventionsDto)
     );
   }
 }
 
-module VentesService {
+module InterventionService {
 }
 
-export { VentesService }
+export { InterventionService }

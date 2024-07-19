@@ -5,8 +5,8 @@ export interface InterventionClient {
   client?: Client;
   code?: string;
   creationDate?: number;
-  dateCommande?: number;
-  etatCommande?: 'EN_PREPARATION' | 'VALIDEE' | 'LIVREE';
+  dateIntervention?: number;
+  etatIntervention?: 'EN_COURS' | 'EN_ATTENTE' | 'TERMINEE';
   id?: number;
   idEntreprise?: number;
   lastModifiedDate?: number;

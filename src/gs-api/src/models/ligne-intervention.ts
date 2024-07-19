@@ -1,13 +1,13 @@
 /* tslint:disable */
-import { InterventionClient } from './intervention-client';
 import { Produit } from './produit';
-export interface LigneInterventionClient {
-  InterventionClient?: InterventionClient;
-  interventions?: Produit;
+import { Interventions } from './interventions'; 
+export interface LigneIntervention {
+  produit?: Produit;
   creationDate?: number;
   id?: number;
   idEntreprise?: number;
   lastModifiedDate?: number;
   dateouvertureTicket?: number;
   problematique?: string;
+  intervention?: Interventions;
 }

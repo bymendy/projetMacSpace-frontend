@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { UserService } from '../user/user.service';
 
 /**
  * Le `ApplicationGuardService` est un service de garde de route qui vérifie si une route peut être activée ou non.
@@ -20,8 +21,9 @@ export class ApplicationGuardService implements CanActivate {
    * 
    * Ce constructeur est actuellement vide mais peut être étendu pour ajouter des dépendances ou des initialisations supplémentaires si nécessaire.
    */
-  constructor() { }
-
+  constructor(
+    private userService: UserService
+  ) { }
   /**
    * Détermine si une route peut être activée ou non.
    * 
@@ -50,6 +52,7 @@ export class ApplicationGuardService implements CanActivate {
     route: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return false;
-  }
+      // return this.userService.isUserLoggedAndAccessTokenValid();
+      return true;
+    }
 }

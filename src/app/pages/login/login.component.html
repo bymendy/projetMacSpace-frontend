@@ -7,44 +7,101 @@
       <div class="col-12 text-center align-self-center">
         <div class="section pb-5 pt-5 pt-sm-2 text-center">
           <!-- Titre avec deux options : Connexion et Inscription -->
-          <h6 class="mb-0 pb-3"><span>J'ai un compte</span><span>S'inscrire</span></h6>
+          <h6 class="mb-0 pb-3">
+            <span>J'ai un compte</span>
+            <span>S'inscrire</span>
+          </h6>
           <!-- Checkbox pour changer entre les formulaires de connexion et d'inscription -->
-          <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+          <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
           <label for="reg-log"></label>
           <div class="card-3d-wrap mx-auto">
             <div class="card-3d-wrapper">
-
-              <!-- Carte pour le formulaire de connexion -->
               <div class="card-front">
                 <div class="center-wrap">
                   <div class="section text-center">
                     <h4 class="mb-4 pb-3">Connexion</h4>
-
-                    <!-- Formulaire de connexion avec Angular Reactive Forms -->
-                    <form [formGroup]="formLogin" (ngSubmit)="submitLoginForm()" novalidate>
+                    <!-- Message d'erreur visible par l'utilisateur  -->
+                    <div class="alert alert-danger" *ngIf="errorMessage">
+                      {{ errorMessage }}
+                    </div>
+                    <!-- Carte pour le formulaire de connexion -->
+                    <!-- Formulaire de connexion  -->
+                    <form
+                      [formGroup]="formLogin"
+                      (ngSubmit)="submitLoginForm()"
+                      novalidate
+                    >
                       <div class="form-group">
-                        <label for="loginEmail" class="form-label">Adresse e-mail</label>
-                        <!-- Champ de saisie pour l'email de connexion -->
-                        <input type="email" id="loginEmail" class="form-control" placeholder="Email" formControlName="email">
+                        <label for="loginEmail" class="form-label"
+                          >Adresse e-mail</label
+                        >
+                        <input
+                          type="email"
+                          id="loginEmail"
+                          class="form-control"
+                          placeholder="Email"
+                          formControlName="email"
+                          [(ngModel)] = "authenticationRequest.login">
                         <!-- Affichage des erreurs de validation pour l'email -->
-                        <div *ngIf="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)" class="text-danger">
-                          <div *ngIf="formLogin.controls['email'].errors?.['required']">L'adresse e-mail est requise.</div>
-                          <div *ngIf="formLogin.controls['email'].errors?.['email']">L'adresse e-mail n'est pas valide.</div>
+                        <div
+                          *ngIf="
+                            formLogin.controls['email'].invalid &&
+                            (formLogin.controls['email'].dirty ||
+                              formLogin.controls['email'].touched)
+                          "
+                          class="text-danger"
+                        >
+                          <div
+                            *ngIf="formLogin.controls['email'].errors?.['required']"
+                          >
+                            L'adresse e-mail est requise.
+                          </div>
+                          <div
+                            *ngIf="formLogin.controls['email'].errors?.['email']"
+                          >
+                            L'adresse e-mail n'est pas valide.
+                          </div>
                         </div>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="loginPassword" class="form-label">Mot de passe</label>
-                        <!-- Champ de saisie pour le mot de passe de connexion -->
-                        <input type="password" id="loginPassword" class="form-control" placeholder="Mot de passe" formControlName="password" >
+                        <label for="loginPassword" class="form-label"
+                          >Mot de passe</label
+                        >
+                        <input
+                          type="password"
+                          id="loginPassword"
+                          class="form-control"
+                          placeholder="Mot de passe"
+                          formControlName="password"
+                          [(ngModel)] = "authenticationRequest.password"/>
                         <!-- Affichage des erreurs de validation pour le mot de passe -->
-                        <div *ngIf="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)" class="text-danger">
-                          <div *ngIf="formLogin.controls['password'].errors?.['required']">Le mot de passe est requis.</div>
+                        <div
+                          *ngIf="
+                            formLogin.controls['password'].invalid &&
+                            (formLogin.controls['password'].dirty ||
+                              formLogin.controls['password'].touched)
+                          "
+                          class="text-danger"
+                        >
+                          <div
+                            *ngIf="formLogin.controls['password'].errors?.['required']"
+                          >
+                            Le mot de passe est requis.
+                          </div>
                         </div>
                       </div>
                       <!-- Bouton pour soumettre le formulaire de connexion -->
-                      <button type="submit" class="btn mt-4" (click)="submitLoginForm()">Se connecter</button>
+                      <button
+                        type="submit"
+                        class="btn mt-4"
+                        [disabled]="formLogin.invalid"
+                      >
+                        Se connecter
+                      </button>
                       <!-- Lien pour réinitialiser le mot de passe -->
-                      <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Mot de passe oublié?</a></p>
+                      <p class="mb-0 mt-4 text-center">
+                        <a href="#0" class="link">Mot de passe oublié?</a>
+                      </p>
                     </form>
                   </div>
                 </div>
@@ -55,38 +112,110 @@
                 <div class="center-wrap">
                   <div class="section text-center">
                     <h4 class="mb-4 pb-3">S'enregistrer</h4>
+                    <!-- Message d'erreur visible par l'utilisateur  -->
+                    <div class="alert alert-danger" *ngIf="errorsMsg.length > 0">
+                      <div *ngFor="let msg of errorsMsg">
+                        <span >{{msg}}</span>
+                      </div>
+                    </div>
                     <!-- Formulaire d'inscription avec Angular Reactive Forms -->
-                    <form [formGroup]="formRegister" (ngSubmit)="submitRegisterForm()" novalidate>
+                    <form
+                      [formGroup]="formRegister"
+                      (ngSubmit)="submitRegisterForm()"
+                      novalidate
+                    >
                       <div class="form-group">
                         <label for="registerName" class="form-label">Nom</label>
-                        <!-- Champ de saisie pour le nom lors de l'inscription -->
-                        <input type="text" id="registerName" class="form-control" placeholder="Nom" formControlName="name">
+                        <input
+                          type="text"
+                          id="registerName"
+                          class="form-control"
+                          placeholder="Nom"
+                          formControlName="name"
+                          [(ngModel)]="entrepriseDto.name"/>
                         <!-- Affichage des erreurs de validation pour le nom -->
-                        <div *ngIf="formRegister.controls['name'].invalid && (formRegister.controls['name'].dirty || formRegister.controls['name'].touched)" class="text-danger">
-                          <div *ngIf="formRegister.controls['name'].errors?.['required']">Le nom est requis.</div>
+                        <div
+                          *ngIf="
+                            formRegister.controls['name'].invalid &&
+                            (formRegister.controls['name'].dirty ||
+                              formRegister.controls['name'].touched)
+                          "
+                          class="text-danger"
+                        >
+                          <div
+                            *ngIf="formRegister.controls['name'].errors?.['required']"
+                          >
+                            Le nom est requis.
+                          </div>
                         </div>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="registerEmail" class="form-label">Adresse e-mail</label>
-                        <!-- Champ de saisie pour l'email lors de l'inscription -->
-                        <input type="email" id="registerEmail" class="form-control" placeholder="Email" formControlName="email">
+                        <label for="registerEmail" class="form-label"
+                          >Adresse e-mail</label
+                        >
+                        <input
+                          type="email"
+                          id="registerEmail"
+                          class="form-control"
+                          placeholder="Email"
+                          formControlName="email"
+                          [(ngModel)]="entrepriseDto.email"/>
                         <!-- Affichage des erreurs de validation pour l'email -->
-                        <div *ngIf="formRegister.controls['email'].invalid && (formRegister.controls['email'].dirty || formRegister.controls['email'].touched)" class="text-danger">
-                          <div *ngIf="formRegister.controls['email'].errors?.['required']">L'adresse e-mail est requise.</div>
-                          <div *ngIf="formRegister.controls['email'].errors?.['email']">L'adresse e-mail n'est pas valide.</div>
+                        <div
+                          *ngIf="
+                            formRegister.controls['email'].invalid &&
+                            (formRegister.controls['email'].dirty ||
+                              formRegister.controls['email'].touched)
+                          "
+                          class="text-danger"
+                        >
+                          <div
+                            *ngIf="formRegister.controls['email'].errors?.['required']"
+                          >
+                            L'adresse e-mail est requise.
+                          </div>
+                          <div
+                            *ngIf="formRegister.controls['email'].errors?.['email']"
+                          >
+                            L'adresse e-mail n'est pas valide.
+                          </div>
                         </div>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="registerPassword" class="form-label">Mot de passe</label>
-                        <!-- Champ de saisie pour le mot de passe lors de l'inscription -->
-                        <input type="password" id="registerPassword" class="form-control" placeholder="Mot de passe" formControlName="password">
+                        <label for="registerPassword" class="form-label"
+                          >Mot de passe</label
+                        >
+                        <input
+                          type="password"
+                          id="registerPassword"
+                          class="form-control"
+                          placeholder="Mot de passe"
+                          formControlName="password"
+                          [(ngModel)]="entrepriseDto.password"/>
                         <!-- Affichage des erreurs de validation pour le mot de passe -->
-                        <div *ngIf="formRegister.controls['password'].invalid && (formRegister.controls['password'].dirty || formRegister.controls['password'].touched)" class="text-danger">
-                          <div *ngIf="formRegister.controls['password'].errors?.['required']">Le mot de passe est requis.</div>
+                        <div
+                          *ngIf="
+                            formRegister.controls['password'].invalid &&
+                            (formRegister.controls['password'].dirty ||
+                              formRegister.controls['password'].touched)
+                          "
+                          class="text-danger"
+                        >
+                          <div
+                            *ngIf="formRegister.controls['password'].errors?.['required']"
+                          >
+                            Le mot de passe est requis.
+                          </div>
                         </div>
                       </div>
                       <!-- Bouton pour soumettre le formulaire d'inscription -->
-                      <button type="submit" class="btn mt-4">S'inscrire</button>
+                      <button
+                        type="submit"
+                        class="btn mt-4"
+                        [disabled]="formRegister.invalid"
+                      >
+                        S'inscrire
+                      </button>
                     </form>
                   </div>
                 </div>
