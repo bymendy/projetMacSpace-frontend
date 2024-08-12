@@ -8,5 +8,5 @@ export interface Interventions {
   id?: number;
   idEntreprise?: number;
   lastModifiedDate?: number;
-  ligneIntervention?: Array<LigneIntervention>;
+  ligneInterventions?: Array<LigneIntervention>;
 }

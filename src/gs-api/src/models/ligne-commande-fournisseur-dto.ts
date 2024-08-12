@@ -2,10 +2,10 @@
 import { ProduitDto } from './produit-dto';
 import { CommandeFournisseur } from './commande-fournisseur';
 export interface LigneCommandeFournisseurDto {
-  produit?: ProduitDto;
+  article?: ProduitDto;
   commandeFournisseur?: CommandeFournisseur;
   id?: number;
   idEntreprise?: number;
-  dateouvertureTicket?: number;
-  problematique?: string;
+  prixUnitaire?: number;
+  quantite?: number;
 }

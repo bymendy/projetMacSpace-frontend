@@ -7,14 +7,14 @@ import { ProduitsService } from './services/produits.service';
 import { AuthenticationService } from './services/authentication.service';
 import { CategoriesService } from './services/categories.service';
 import { ClientsService } from './services/clients.service';
-import { InterventionsService } from './services/interventions-client.service';
+import { InterventionsService } from './services/interventions.service';
 import { CommandefournisseurService } from './services/commandefournisseur.service';
 import { EntreprisesService } from './services/entreprises.service';
 import { FournisseurService } from './services/fournisseur.service';
 import { MvtstkService } from './services/mvtstk.service';
 import { PhotosService } from './services/photos.service';
 import { UtilisateursService } from './services/utilisateurs.service';
-import { InterventionService } from './services/Intervention.service';
+import { InterventionService } from './services/intervention.service';
 
 /**
  * Provider for all Api services, plus ApiConfiguration

@@ -2,10 +2,10 @@
 import { ProduitDto } from './produit-dto';
 import { InterventionsDto } from './interventions-dto';
 export interface LigneInterventionDto {
-  produit?: ProduitDto;
+  article?: ProduitDto;
   id?: number;
   idEntreprise?: number;
-  dateouvertureTicket?: number;
-  problematique?: string;
+  prixUnitaire?: number;
+  quantite?: number;
   intervention?: InterventionsDto;
 }

@@ -7,7 +7,7 @@ export interface EntrepriseDto {
   email?: string;
   id?: number;
   name?: string;
-  password?: string;
+  password?: string,
   numTel?: string;
   photo?: string;
   steWeb?: string;

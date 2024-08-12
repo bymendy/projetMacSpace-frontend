@@ -1,10 +1,9 @@
 /* tslint:disable */
-import { InterventionClientDto } from './intervention-client-dto';
 import { ProduitDto } from './produit-dto';
 export interface LigneInterventionClientDto {
-  interventions?: InterventionClientDto;
+  article?: ProduitDto;
   id?: number;
   idEntreprise?: number;
-  dateouvertureTicket?: number;
-  problematique?: string;
+  prixUnitaire?: number;
+  quantite?: number;
 }

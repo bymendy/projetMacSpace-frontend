@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit { // Implémente OnInit pour initi
       this.entrepriseDto.password = this.formRegister.value.password;
 
       // Appelle la méthode inscrire du service EntreprisesService
-      this.entrepriseService.sinscrire(this.entrepriseDto).subscribe({
+      this.entrepriseService.save(this.entrepriseDto).subscribe({
         next: () => { // En cas de succès
           this.connectEntreprise(); // Connecte l'entreprise après l'inscription
         },

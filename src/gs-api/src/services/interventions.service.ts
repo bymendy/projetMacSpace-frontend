@@ -19,7 +19,7 @@ class InterventionsService extends __BaseService {
   static readonly deletePath = '/gestiondestock/v1/interventions/delete/{idInterventionClient}';
   static readonly findByCodePath = '/gestiondestock/v1/interventions/filter/{codeInterventionClient}';
   static readonly findAllLignesCommandesClientByInterventionClientIdPath = '/gestiondestock/v1/interventions/lignesCommande/{idCommande}';
-  static readonly updateArticlePath = '/gestiondestock/v1/interventions/update/article/{idCommande}/{idLigneCommande}/{idProduit}';
+  static readonly updateProduitPath = '/gestiondestock/v1/interventions/update/produit/{idCommande}/{idLigneCommande}/{idProduit}';
   static readonly updateClientPath = '/gestiondestock/v1/interventions/update/client/{idCommande}/{idClient}';
   static readonly updateEtatCommandePath = '/gestiondestock/v1/interventions/update/etat/{idCommande}/{etatCommande}';
   static readonly updateQuantiteCommandePath = '/gestiondestock/v1/interventions/update/quantite/{idCommande}/{idLigneCommande}/{quantite}';

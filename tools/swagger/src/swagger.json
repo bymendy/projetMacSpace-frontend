@@ -10,7 +10,7 @@
         "email" : "barrymendy@gmail.com"
       }
     },
-    "basePath" : "http://localhost:3306",
+    "basePath" : "http://localhost:3306/macspace",
     "tags" : [ {
       "name" : "produits"
     }, {
@@ -34,7 +34,7 @@
     }, {
       "name" : "utilisateurs"
     }, {
-      "name" : "ventes"
+      "name" : "intervention"
     } ],
     "paths" : {
       "/gestiondestock/v1/produits/all" : {
@@ -109,7 +109,7 @@
       "/gestiondestock/v1/produits/filter/category/{idCategory}" : {
         "get" : {
           "tags" : [ "produits" ],
-          "operationId" : "findAllArticleByIdCategory",
+          "operationId" : "findAllProduitByIdCategory",
           "produces" : [ "application/json" ],
           "parameters" : [ {
             "name" : "idCategory",
@@ -134,8 +134,8 @@
       "/gestiondestock/v1/produits/filter/{codeProduit}" : {
         "get" : {
           "tags" : [ "produits" ],
-          "summary" : "Rechercher un article par CODE",
-          "description" : "Cette methode permet de chercher un article par son CODE",
+          "summary" : "Rechercher un produit par CODE",
+          "description" : "Cette methode permet de chercher un produit par son CODE",
           "operationId" : "findBycodeProduit",
           "produces" : [ "application/json" ],
           "parameters" : [ {
@@ -207,10 +207,10 @@
           }
         }
       },
-      "/gestiondestock/v1/produits/historique/vente/{idProduit}" : {
+      "/gestiondestock/v1/produits/historique/intervention/{idProduit}" : {
         "get" : {
           "tags" : [ "produits" ],
-          "operationId" : "findHistoriqueVentes",
+          "operationId" : "findHistoriqueInterventions",
           "produces" : [ "application/json" ],
           "parameters" : [ {
             "name" : "idProduit",
@@ -225,7 +225,7 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/definitions/LigneVenteDto"
+                  "$ref" : "#/definitions/LigneInterventionDto"
                 }
               }
             }
@@ -613,10 +613,10 @@
           }
         }
       },
-      "/gestiondestock/v1/interventions/update/article/{idCommande}/{idLigneCommande}/{idProduit}" : {
+      "/gestiondestock/v1/interventions/update/produit/{idCommande}/{idLigneCommande}/{idProduit}" : {
         "patch" : {
           "tags" : [ "interventions" ],
-          "operationId" : "updateArticle",
+          "operationId" : "updateProduit",
           "parameters" : [ {
             "name" : "idCommande",
             "in" : "path",
@@ -792,7 +792,7 @@
           }
         }
       },
-      "/gestiondestock/v1/commandesfournisseurs/delete/article/{idCommande}/{idLigneCommande}" : {
+      "/gestiondestock/v1/commandesfournisseurs/delete/produit/{idCommande}/{idLigneCommande}" : {
         "delete" : {
           "tags" : [ "commandefournisseur" ],
           "operationId" : "deleteProduit",
@@ -881,10 +881,10 @@
           }
         }
       },
-      "/gestiondestock/v1/commandesfournisseurs/update/article/{idCommande}/{idLigneCommande}/{idProduit}" : {
+      "/gestiondestock/v1/commandesfournisseurs/update/produit/{idCommande}/{idLigneCommande}/{idProduit}" : {
         "patch" : {
           "tags" : [ "commandefournisseur" ],
-          "operationId" : "updateArticle",
+          "operationId" : "updateProduit",
           "parameters" : [ {
             "name" : "idCommande",
             "in" : "path",
@@ -1243,10 +1243,10 @@
           }
         }
       },
-      "/gestiondestock/v1/mvtstk/filter/article/{idProduit}" : {
+      "/gestiondestock/v1/mvtstk/filter/produit/{idProduit}" : {
         "get" : {
           "tags" : [ "mvtstk" ],
-          "operationId" : "mvtStkArticle",
+          "operationId" : "mvtStkProduit",
           "parameters" : [ {
             "name" : "idProduit",
             "in" : "path",
@@ -1292,7 +1292,7 @@
       "/gestiondestock/v1/mvtstk/stockreel/{idProduit}" : {
         "get" : {
           "tags" : [ "mvtstk" ],
-          "operationId" : "stockReelArticle",
+          "operationId" : "stockReelProduit",
           "parameters" : [ {
             "name" : "idProduit",
             "in" : "path",
@@ -1466,9 +1466,9 @@
           }
         }
       },
-      "/gestiondestock/v1/ventes/all" : {
+      "/gestiondestock/v1/interventions/all" : {
         "get" : {
-          "tags" : [ "ventes" ],
+          "tags" : [ "interventions" ],
           "operationId" : "findAll",
           "responses" : {
             "200" : {
@@ -1476,41 +1476,41 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/definitions/VentesDto"
+                  "$ref" : "#/definitions/InterventionsDto"
                 }
               }
             }
           }
         }
       },
-      "/gestiondestock/v1/ventes/create" : {
+      "/gestiondestock/v1/interventions/create" : {
         "post" : {
-          "tags" : [ "ventes" ],
+          "tags" : [ "interventions" ],
           "operationId" : "save",
           "parameters" : [ {
             "in" : "body",
             "name" : "body",
             "required" : false,
             "schema" : {
-              "$ref" : "#/definitions/VentesDto"
+              "$ref" : "#/definitions/InterventionsDto"
             }
           } ],
           "responses" : {
             "200" : {
               "description" : "successful operation",
               "schema" : {
-                "$ref" : "#/definitions/VentesDto"
+                "$ref" : "#/definitions/InterventionsDto"
               }
             }
           }
         }
       },
-      "/gestiondestock/v1/ventes/delete/{idVente}" : {
+      "/gestiondestock/v1/interventions/delete/{idIntervention}" : {
         "delete" : {
-          "tags" : [ "ventes" ],
+          "tags" : [ "interventions" ],
           "operationId" : "delete",
           "parameters" : [ {
-            "name" : "idVente",
+            "name" : "idIntervention",
             "in" : "path",
             "required" : true,
             "type" : "integer",
@@ -1523,12 +1523,12 @@
           }
         }
       },
-      "/gestiondestock/v1/ventes/{codeVente}" : {
+      "/gestiondestock/v1/interventions/{codeIntervention}" : {
         "get" : {
-          "tags" : [ "ventes" ],
+          "tags" : [ "interventions" ],
           "operationId" : "findByCode",
           "parameters" : [ {
-            "name" : "codeVente",
+            "name" : "codeIntervention",
             "in" : "path",
             "required" : true,
             "type" : "string"
@@ -1537,18 +1537,18 @@
             "200" : {
               "description" : "successful operation",
               "schema" : {
-                "$ref" : "#/definitions/VentesDto"
+                "$ref" : "#/definitions/InterventionsDto"
               }
             }
           }
         }
       },
-      "/gestiondestock/v1/ventes/{idVente}" : {
+      "/gestiondestock/v1/interventions/{idIntervention}" : {
         "get" : {
-          "tags" : [ "ventes" ],
+          "tags" : [ "interventions" ],
           "operationId" : "findById",
           "parameters" : [ {
-            "name" : "idVente",
+            "name" : "idIntervention",
             "in" : "path",
             "required" : true,
             "type" : "integer",
@@ -1558,7 +1558,7 @@
             "200" : {
               "description" : "successful operation",
               "schema" : {
-                "$ref" : "#/definitions/VentesDto"
+                "$ref" : "#/definitions/InterventionsDto"
               }
             }
           }
@@ -1606,7 +1606,7 @@
           }
         }
       },
-      "Article" : {
+      "Produit" : {
         "type" : "object",
         "properties" : {
           "id" : {
@@ -1646,10 +1646,10 @@
           "category" : {
             "$ref" : "#/definitions/Category"
           },
-          "ligneVentes" : {
+          "ligneInterventions" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/definitions/LigneVente"
+              "$ref" : "#/definitions/LigneIntervention"
             }
           },
           "ligneInterventionClients" : {
@@ -1753,7 +1753,7 @@
           "produits" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/definitions/Article"
+              "$ref" : "#/definitions/Produit"
             }
           }
         }
@@ -2146,8 +2146,8 @@
             "type" : "integer",
             "format" : "int64"
           },
-          "article" : {
-            "$ref" : "#/definitions/Article"
+          "produit" : {
+            "$ref" : "#/definitions/Produit"
           },
           "InterventionClient" : {
             "$ref" : "#/definitions/InterventionClient"
@@ -2171,7 +2171,7 @@
             "type" : "integer",
             "format" : "int32"
           },
-          "article" : {
+          "produit" : {
             "$ref" : "#/definitions/ProduitDto"
           },
           "quantite" : {
@@ -2201,8 +2201,8 @@
             "type" : "integer",
             "format" : "int64"
           },
-          "article" : {
-            "$ref" : "#/definitions/Article"
+          "produit" : {
+            "$ref" : "#/definitions/Produit"
           },
           "commandeFournisseur" : {
             "$ref" : "#/definitions/CommandeFournisseur"
@@ -2226,7 +2226,7 @@
             "type" : "integer",
             "format" : "int32"
           },
-          "article" : {
+          "produit" : {
             "$ref" : "#/definitions/ProduitDto"
           },
           "commandeFournisseur" : {
@@ -2244,7 +2244,7 @@
           }
         }
       },
-      "LigneVente" : {
+      "LigneIntervention" : {
         "type" : "object",
         "properties" : {
           "id" : {
@@ -2259,11 +2259,11 @@
             "type" : "integer",
             "format" : "int64"
           },
-          "vente" : {
-            "$ref" : "#/definitions/Ventes"
+          "intervention" : {
+            "$ref" : "#/definitions/Interventions"
           },
-          "article" : {
-            "$ref" : "#/definitions/Article"
+          "produit" : {
+            "$ref" : "#/definitions/Produit"
           },
           "quantite" : {
             "type" : "number"
@@ -2277,17 +2277,17 @@
           }
         }
       },
-      "LigneVenteDto" : {
+      "LigneInterventionDto" : {
         "type" : "object",
         "properties" : {
           "id" : {
             "type" : "integer",
             "format" : "int32"
           },
-          "vente" : {
-            "$ref" : "#/definitions/VentesDto"
+          "intervention" : {
+            "$ref" : "#/definitions/InterventionsDto"
           },
-          "article" : {
+          "produit" : {
             "$ref" : "#/definitions/ProduitDto"
           },
           "quantite" : {
@@ -2324,8 +2324,8 @@
           "quantite" : {
             "type" : "number"
           },
-          "article" : {
-            "$ref" : "#/definitions/Article"
+          "produit" : {
+            "$ref" : "#/definitions/Produit"
           },
           "typeMvt" : {
             "type" : "string",
@@ -2333,7 +2333,7 @@
           },
           "sourceMvt" : {
             "type" : "string",
-            "enum" : [ "COMMANDE_CLIENT", "COMMANDE_FOURNISSEUR", "VENTE" ]
+            "enum" : [ "INTERVENTION_CLIENT", "COMMANDE_FOURNISSEUR", "INTERVENTION" ]
           },
           "idEntreprise" : {
             "type" : "integer",
@@ -2355,7 +2355,7 @@
           "quantite" : {
             "type" : "number"
           },
-          "article" : {
+          "produit" : {
             "$ref" : "#/definitions/ProduitDto"
           },
           "typeMvt" : {
@@ -2364,7 +2364,7 @@
           },
           "sourceMvt" : {
             "type" : "string",
-            "enum" : [ "COMMANDE_CLIENT", "COMMANDE_FOURNISSEUR", "VENTE" ]
+            "enum" : [ "COMMANDE_CLIENT", "COMMANDE_FOURNISSEUR", "INTERVENTION" ]
           },
           "idEntreprise" : {
             "type" : "integer",
@@ -2424,7 +2424,7 @@
           }
         }
       },
-      "Ventes" : {
+      "Interventions" : {
         "type" : "object",
         "properties" : {
           "id" : {
@@ -2442,7 +2442,7 @@
           "code" : {
             "type" : "string"
           },
-          "dateVente" : {
+          "dateIntervention" : {
             "type" : "integer",
             "format" : "int64"
           },
@@ -2453,15 +2453,15 @@
             "type" : "integer",
             "format" : "int32"
           },
-          "ligneVentes" : {
+          "ligneInterventions" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/definitions/LigneVente"
+              "$ref" : "#/definitions/LigneIntervention"
             }
           }
         }
       },
-      "VentesDto" : {
+      "InterventionsDto" : {
         "type" : "object",
         "properties" : {
           "id" : {
@@ -2471,17 +2471,17 @@
           "code" : {
             "type" : "string"
           },
-          "dateVente" : {
+          "dateIntervention" : {
             "type" : "integer",
             "format" : "int64"
           },
           "commentaire" : {
             "type" : "string"
           },
-          "ligneVentes" : {
+          "ligneInterventions" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/definitions/LigneVenteDto"
+              "$ref" : "#/definitions/LigneInterventionDto"
             }
           },
           "idEntreprise" : {

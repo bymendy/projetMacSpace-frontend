@@ -14,9 +14,9 @@ import { InterventionsDto } from '../models/interventions-dto';
 class InterventionService extends __BaseService {
   static readonly findAllPath = '/gestiondestock/v1/interventions/all';
   static readonly savePath = '/gestiondestock/v1/interventions/create';
-  static readonly deletePath = '/gestiondestock/v1/interventions/delete/{idIntervention}';
+  static readonly deletePath = '/gestiondestock/v1/interventions/delete/{idVente}';
   static readonly findByCodePath = '/gestiondestock/v1/interventions/{codeIntervention}';
-  static readonly findByIdPath = '/gestiondestock/v1/interventions/{idIntervention}';
+  static readonly findByIdPath = '/gestiondestock/v1/interventions/{idVente}';
 
   constructor(
     config: __Configuration,
@@ -95,16 +95,16 @@ class InterventionService extends __BaseService {
   }
 
   /**
-   * @param idIntervention undefined
+   * @param idVente undefined
    */
-  deleteResponse(idIntervention: number): __Observable<__StrictHttpResponse<null>> {
+  deleteResponse(idVente: number): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/gestiondestock/v1/interventions/delete/${encodeURIComponent(String(idIntervention))}`,
+      this.rootUrl + `/gestiondestock/v1/interventions/delete/${encodeURIComponent(String(idVente))}`,
       __body,
       {
         headers: __headers,
@@ -120,10 +120,10 @@ class InterventionService extends __BaseService {
     );
   }
   /**
-   * @param idIntervention undefined
+   * @param idVente undefined
    */
-  delete(idIntervention: number): __Observable<null> {
-    return this.deleteResponse(idIntervention).pipe(
+  delete(idVente: number): __Observable<null> {
+    return this.deleteResponse(idVente).pipe(
       __map(_r => _r.body as null)
     );
   }
@@ -165,17 +165,17 @@ class InterventionService extends __BaseService {
   }
 
   /**
-   * @param idIntervention undefined
+   * @param idVente undefined
    * @return successful operation
    */
-  findByIdResponse(idIntervention: number): __Observable<__StrictHttpResponse<InterventionsDto>> {
+  findByIdResponse(idVente: number): __Observable<__StrictHttpResponse<InterventionsDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gestiondestock/v1/interventions/${encodeURIComponent(String(idIntervention))}`,
+      this.rootUrl + `/gestiondestock/v1/interventions/${encodeURIComponent(String(idVente))}`,
       __body,
       {
         headers: __headers,
@@ -191,11 +191,11 @@ class InterventionService extends __BaseService {
     );
   }
   /**
-   * @param idIntervention undefined
+   * @param idVente undefined
    * @return successful operation
    */
-  findById(idIntervention: number): __Observable<InterventionsDto> {
-    return this.findByIdResponse(idIntervention).pipe(
+  findById(idVente: number): __Observable<InterventionsDto> {
+    return this.findByIdResponse(idVente).pipe(
       __map(_r => _r.body as InterventionsDto)
     );
   }

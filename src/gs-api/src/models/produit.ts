@@ -14,7 +14,7 @@ export interface Produit {
   lastModifiedDate?: number;
   ligneCommandeFournisseurs?: Array<LigneCommandeFournisseur>;
   ligneInterventionClients?: Array<LigneInterventionClient>;
-  ligneIntervention?: Array<LigneIntervention>;
+  ligneInterventions?: Array<LigneIntervention>;
   mvtStks?: Array<MvtStk>;
   photo?: string;
   prixUnitaireHt?: number;

@@ -3,11 +3,11 @@ import { InterventionClient } from './intervention-client';
 import { Produit } from './produit';
 export interface LigneInterventionClient {
   InterventionClient?: InterventionClient;
-  interventions?: Produit;
+  produit?: Produit;
   creationDate?: number;
   id?: number;
   idEntreprise?: number;
   lastModifiedDate?: number;
-  dateouvertureTicket?: number;
-  problematique?: string;
+  prixUnitaire?: number;
+  quantite?: number;
 }
