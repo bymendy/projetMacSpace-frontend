@@ -10,7 +10,7 @@ import { map as __map, filter as __filter } from 'rxjs/operators';
 import { ProduitDto } from '../models/produit-dto';
 import { LigneInterventionClientDto } from '../models/ligne-intervention-client-dto';
 import { LigneCommandeFournisseurDto } from '../models/ligne-commande-fournisseur-dto';
-import { LigneVenteDto } from '../models/ligne-intervention-dto';
+import { LigneInterventionDto } from '../models/ligne-intervention-dto';
 @Injectable({
   providedIn: 'root',
 })
@@ -307,7 +307,7 @@ class ProduitsService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  findHistoriqueVentesResponse(idProduit: number): __Observable<__StrictHttpResponse<Array<LigneVenteDto>>> {
+  findHistoriqueVentesResponse(idProduit: number): __Observable<__StrictHttpResponse<Array<LigneInterventionDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -325,7 +325,7 @@ class ProduitsService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<LigneVenteDto>>;
+        return _r as __StrictHttpResponse<Array<LigneInterventionDto>>;
       })
     );
   }
@@ -333,9 +333,9 @@ class ProduitsService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  findHistoriqueVentes(idProduit: number): __Observable<Array<LigneVenteDto>> {
+  findHistoriqueVentes(idProduit: number): __Observable<Array<LigneInterventionDto>> {
     return this.findHistoriqueVentesResponse(idProduit).pipe(
-      __map(_r => _r.body as Array<LigneVenteDto>)
+      __map(_r => _r.body as Array<LigneInterventionDto>)
     );
   }
 
