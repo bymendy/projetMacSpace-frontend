@@ -10,7 +10,7 @@
         "email" : "barrymendy@gmail.com"
       }
     },
-    "basePath" : "http://localhost:3306/macspace",
+    "basePath" : "http://localhost:3306",
     "tags" : [ {
       "name" : "produits"
     }, {

@@ -18,11 +18,11 @@ class ProduitsService extends __BaseService {
   static readonly findAllPath = '/gestiondestock/v1/produits/all';
   static readonly savePath = '/gestiondestock/v1/produits/create';
   static readonly deletePath = '/gestiondestock/v1/produits/delete/{idProduit}';
-  static readonly findAllArticleByIdCategoryPath = '/gestiondestock/v1/produits/filter/category/{idCategory}';
+  static readonly findAllProduitByIdCategoryPath = '/gestiondestock/v1/produits/filter/category/{idCategory}';
   static readonly findBycodeProduitPath = '/gestiondestock/v1/produits/filter/{codeProduit}';
   static readonly findHistoriaueInterventionClientPath = '/gestiondestock/v1/produits/historique/InterventionClient/{idProduit}';
   static readonly findHistoriqueCommandeFournisseurPath = '/gestiondestock/v1/produits/historique/commandefournisseur/{idProduit}';
-  static readonly findHistoriqueVentesPath = '/gestiondestock/v1/produits/historique/vente/{idProduit}';
+  static readonly findHistoriqueInterventionsPath = '/gestiondestock/v1/produits/historique/intervention/{idProduit}';
   static readonly findByIdPath = '/gestiondestock/v1/produits/{idProduit}';
 
   constructor(
@@ -157,7 +157,7 @@ class ProduitsService extends __BaseService {
    * @param idCategory undefined
    * @return successful operation
    */
-  findAllArticleByIdCategoryResponse(idCategory: number): __Observable<__StrictHttpResponse<Array<ProduitDto>>> {
+  findAllProduitByIdCategoryResponse(idCategory: number): __Observable<__StrictHttpResponse<Array<ProduitDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -183,16 +183,16 @@ class ProduitsService extends __BaseService {
    * @param idCategory undefined
    * @return successful operation
    */
-  findAllArticleByIdCategory(idCategory: number): __Observable<Array<ProduitDto>> {
-    return this.findAllArticleByIdCategoryResponse(idCategory).pipe(
+  findAllProduitByIdCategory(idCategory: number): __Observable<Array<ProduitDto>> {
+    return this.findAllProduitByIdCategoryResponse(idCategory).pipe(
       __map(_r => _r.body as Array<ProduitDto>)
     );
   }
 
   /**
-   * Rechercher un article par CODE
+   * Rechercher un produit par CODE
    *
-   * Cette methode permet de chercher un article par son CODE
+   * Cette methode permet de chercher un produit par son CODE
    * @param codeProduit undefined
    * @return Le produit a ete trouve dans la BDD
    */
@@ -219,9 +219,9 @@ class ProduitsService extends __BaseService {
     );
   }
   /**
-   * Rechercher un article par CODE
+   * Rechercher un produit par CODE
    *
-   * Cette methode permet de chercher un article par son CODE
+   * Cette methode permet de chercher un produit par son CODE
    * @param codeProduit undefined
    * @return Le produit a ete trouve dans la BDD
    */
@@ -307,14 +307,14 @@ class ProduitsService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  findHistoriqueVentesResponse(idProduit: number): __Observable<__StrictHttpResponse<Array<LigneInterventionDto>>> {
+  findHistoriqueInterventionsResponse(idProduit: number): __Observable<__StrictHttpResponse<Array<LigneInterventionDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gestiondestock/v1/produits/historique/vente/${encodeURIComponent(String(idProduit))}`,
+      this.rootUrl + `/gestiondestock/v1/produits/historique/intervention/${encodeURIComponent(String(idProduit))}`,
       __body,
       {
         headers: __headers,
@@ -333,8 +333,8 @@ class ProduitsService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  findHistoriqueVentes(idProduit: number): __Observable<Array<LigneInterventionDto>> {
-    return this.findHistoriqueVentesResponse(idProduit).pipe(
+  findHistoriqueInterventions(idProduit: number): __Observable<Array<LigneInterventionDto>> {
+    return this.findHistoriqueInterventionsResponse(idProduit).pipe(
       __map(_r => _r.body as Array<LigneInterventionDto>)
     );
   }

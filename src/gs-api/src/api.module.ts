@@ -14,7 +14,6 @@ import { FournisseurService } from './services/fournisseur.service';
 import { MvtstkService } from './services/mvtstk.service';
 import { PhotosService } from './services/photos.service';
 import { UtilisateursService } from './services/utilisateurs.service';
-import { InterventionService } from './services/intervention.service';
 
 /**
  * Provider for all Api services, plus ApiConfiguration
@@ -39,8 +38,7 @@ import { InterventionService } from './services/intervention.service';
     FournisseurService,
     MvtstkService,
     PhotosService,
-    UtilisateursService,
-    InterventionService
+    UtilisateursService
   ],
 })
 export class ApiModule {

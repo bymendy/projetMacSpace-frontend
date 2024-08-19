@@ -8,7 +8,6 @@ import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
 import { EntrepriseDto } from '../models/entreprise-dto';
-import { EntrepriseService } from '../../../app/services/entreprise/entreprise.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -24,7 +23,6 @@ class EntreprisesService extends __BaseService {
   ) {
     super(config, http);
   }
-
 
   /**
    * @return successful operation
@@ -164,9 +162,7 @@ class EntreprisesService extends __BaseService {
       __map(_r => _r.body as EntrepriseDto)
     );
   }
-  
 }
-
 
 module EntreprisesService {
 }

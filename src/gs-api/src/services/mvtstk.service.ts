@@ -15,9 +15,9 @@ class MvtstkService extends __BaseService {
   static readonly correctionStockNegPath = '/gestiondestock/v1/mvtstk/correctionneg';
   static readonly correctionStockPosPath = '/gestiondestock/v1/mvtstk/correctionpos';
   static readonly entreeStockPath = '/gestiondestock/v1/mvtstk/entree';
-  static readonly mvtStkArticlePath = '/gestiondestock/v1/mvtstk/filter/article/{idProduit}';
+  static readonly mvtStkProduitPath = '/gestiondestock/v1/mvtstk/filter/produit/{idProduit}';
   static readonly sortieStockPath = '/gestiondestock/v1/mvtstk/sortie';
-  static readonly stockReelArticlePath = '/gestiondestock/v1/mvtstk/stockreel/{idProduit}';
+  static readonly stockReelProduitPath = '/gestiondestock/v1/mvtstk/stockreel/{idProduit}';
 
   constructor(
     config: __Configuration,
@@ -138,14 +138,14 @@ class MvtstkService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  mvtStkArticleResponse(idProduit: number): __Observable<__StrictHttpResponse<Array<MvtStkDto>>> {
+  mvtStkProduitResponse(idProduit: number): __Observable<__StrictHttpResponse<Array<MvtStkDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gestiondestock/v1/mvtstk/filter/article/${encodeURIComponent(String(idProduit))}`,
+      this.rootUrl + `/gestiondestock/v1/mvtstk/filter/produit/${encodeURIComponent(String(idProduit))}`,
       __body,
       {
         headers: __headers,
@@ -164,8 +164,8 @@ class MvtstkService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  mvtStkArticle(idProduit: number): __Observable<Array<MvtStkDto>> {
-    return this.mvtStkArticleResponse(idProduit).pipe(
+  mvtStkProduit(idProduit: number): __Observable<Array<MvtStkDto>> {
+    return this.mvtStkProduitResponse(idProduit).pipe(
       __map(_r => _r.body as Array<MvtStkDto>)
     );
   }
@@ -210,7 +210,7 @@ class MvtstkService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  stockReelArticleResponse(idProduit: number): __Observable<__StrictHttpResponse<number>> {
+  stockReelProduitResponse(idProduit: number): __Observable<__StrictHttpResponse<number>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -236,8 +236,8 @@ class MvtstkService extends __BaseService {
    * @param idProduit undefined
    * @return successful operation
    */
-  stockReelArticle(idProduit: number): __Observable<number> {
-    return this.stockReelArticleResponse(idProduit).pipe(
+  stockReelProduit(idProduit: number): __Observable<number> {
+    return this.stockReelProduitResponse(idProduit).pipe(
       __map(_r => _r.body as number)
     );
   }

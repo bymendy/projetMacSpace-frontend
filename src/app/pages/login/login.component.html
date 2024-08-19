@@ -24,7 +24,6 @@
                     <div class="alert alert-danger" *ngIf="errorMessage">
                       {{ errorMessage }}
                     </div>
-                    <!-- Carte pour le formulaire de connexion -->
                     <!-- Formulaire de connexion  -->
                     <form
                       [formGroup]="formLogin"
@@ -32,16 +31,14 @@
                       novalidate
                     >
                       <div class="form-group">
-                        <label for="loginEmail" class="form-label"
-                          >Adresse e-mail</label
-                        >
+                        <label for="loginEmail" class="form-label">Adresse e-mail</label>
                         <input
                           type="email"
                           id="loginEmail"
                           class="form-control"
                           placeholder="Email"
                           formControlName="email"
-                          [(ngModel)] = "authenticationRequest.login">
+                        />
                         <!-- Affichage des erreurs de validation pour l'email -->
                         <div
                           *ngIf="
@@ -51,29 +48,23 @@
                           "
                           class="text-danger"
                         >
-                          <div
-                            *ngIf="formLogin.controls['email'].errors?.['required']"
-                          >
+                          <div *ngIf="formLogin.controls['email'].errors?.['required']">
                             L'adresse e-mail est requise.
                           </div>
-                          <div
-                            *ngIf="formLogin.controls['email'].errors?.['email']"
-                          >
+                          <div *ngIf="formLogin.controls['email'].errors?.['email']">
                             L'adresse e-mail n'est pas valide.
                           </div>
                         </div>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="loginPassword" class="form-label"
-                          >Mot de passe</label
-                        >
+                        <label for="loginPassword" class="form-label">Mot de passe</label>
                         <input
                           type="password"
                           id="loginPassword"
                           class="form-control"
                           placeholder="Mot de passe"
                           formControlName="password"
-                          [(ngModel)] = "authenticationRequest.password"/>
+                        />
                         <!-- Affichage des erreurs de validation pour le mot de passe -->
                         <div
                           *ngIf="
@@ -83,9 +74,7 @@
                           "
                           class="text-danger"
                         >
-                          <div
-                            *ngIf="formLogin.controls['password'].errors?.['required']"
-                          >
+                          <div *ngIf="formLogin.controls['password'].errors?.['required']">
                             Le mot de passe est requis.
                           </div>
                         </div>
@@ -115,7 +104,7 @@
                     <!-- Message d'erreur visible par l'utilisateur  -->
                     <div class="alert alert-danger" *ngIf="errorsMsg.length > 0">
                       <div *ngFor="let msg of errorsMsg">
-                        <span >{{msg}}</span>
+                        <span>{{ msg }}</span>
                       </div>
                     </div>
                     <!-- Formulaire d'inscription avec Angular Reactive Forms -->
@@ -132,7 +121,7 @@
                           class="form-control"
                           placeholder="Nom"
                           formControlName="name"
-                          [(ngModel)]="entrepriseDto.name"/>
+                        />
                         <!-- Affichage des erreurs de validation pour le nom -->
                         <div
                           *ngIf="
@@ -142,24 +131,20 @@
                           "
                           class="text-danger"
                         >
-                          <div
-                            *ngIf="formRegister.controls['name'].errors?.['required']"
-                          >
+                          <div *ngIf="formRegister.controls['name'].errors?.['required']">
                             Le nom est requis.
                           </div>
                         </div>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="registerEmail" class="form-label"
-                          >Adresse e-mail</label
-                        >
+                        <label for="registerEmail" class="form-label">Adresse e-mail</label>
                         <input
                           type="email"
                           id="registerEmail"
                           class="form-control"
                           placeholder="Email"
                           formControlName="email"
-                          [(ngModel)]="entrepriseDto.email"/>
+                        />
                         <!-- Affichage des erreurs de validation pour l'email -->
                         <div
                           *ngIf="
@@ -169,29 +154,23 @@
                           "
                           class="text-danger"
                         >
-                          <div
-                            *ngIf="formRegister.controls['email'].errors?.['required']"
-                          >
+                          <div *ngIf="formRegister.controls['email'].errors?.['required']">
                             L'adresse e-mail est requise.
                           </div>
-                          <div
-                            *ngIf="formRegister.controls['email'].errors?.['email']"
-                          >
+                          <div *ngIf="formRegister.controls['email'].errors?.['email']">
                             L'adresse e-mail n'est pas valide.
                           </div>
                         </div>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="registerPassword" class="form-label"
-                          >Mot de passe</label
-                        >
+                        <label for="registerPassword" class="form-label">Mot de passe</label>
                         <input
                           type="password"
                           id="registerPassword"
                           class="form-control"
                           placeholder="Mot de passe"
                           formControlName="password"
-                          [(ngModel)]="entrepriseDto.password"/>
+                        />
                         <!-- Affichage des erreurs de validation pour le mot de passe -->
                         <div
                           *ngIf="
@@ -201,9 +180,7 @@
                           "
                           class="text-danger"
                         >
-                          <div
-                            *ngIf="formRegister.controls['password'].errors?.['required']"
-                          >
+                          <div *ngIf="formRegister.controls['password'].errors?.['required']">
                             Le mot de passe est requis.
                           </div>
                         </div>

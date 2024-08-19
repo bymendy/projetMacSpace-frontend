@@ -1,11 +1,11 @@
 /* tslint:disable */
-import { ProduitDto } from './produit-dto';
 import { InterventionsDto } from './interventions-dto';
+import { ProduitDto } from './produit-dto';
 export interface LigneInterventionDto {
-  article?: ProduitDto;
   id?: number;
   idEntreprise?: number;
-  prixUnitaire?: number;
-  quantite?: number;
   intervention?: InterventionsDto;
+  prixUnitaire?: number;
+  produit?: ProduitDto;
+  quantite?: number;
 }

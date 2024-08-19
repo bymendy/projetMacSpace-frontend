@@ -9,4 +9,3 @@ export { FournisseurService } from './services/fournisseur.service';
 export { MvtstkService } from './services/mvtstk.service';
 export { PhotosService } from './services/photos.service';
 export { UtilisateursService } from './services/utilisateurs.service';
-export { InterventionService } from './services/intervention.service';

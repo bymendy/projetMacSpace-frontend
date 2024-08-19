@@ -15,11 +15,11 @@ import { LigneCommandeFournisseurDto } from '../models/ligne-commande-fournisseu
 class CommandefournisseurService extends __BaseService {
   static readonly findAllPath = '/gestiondestock/v1/commandesfournisseurs/all';
   static readonly savePath = '/gestiondestock/v1/commandesfournisseurs/create';
-  static readonly deleteProduitPath = '/gestiondestock/v1/commandesfournisseurs/delete/article/{idCommande}/{idLigneCommande}';
+  static readonly deleteProduitPath = '/gestiondestock/v1/commandesfournisseurs/delete/produit/{idCommande}/{idLigneCommande}';
   static readonly deletePath = '/gestiondestock/v1/commandesfournisseurs/delete/{idCommandeFournisseur}';
   static readonly findByCodePath = '/gestiondestock/v1/commandesfournisseurs/filter/{codeCommandeFournisseur}';
   static readonly findAllLignesCommandesFournisseurByCommandeFournisseurIdPath = '/gestiondestock/v1/commandesfournisseurs/lignesCommande/{idCommande}';
-  static readonly updateArticlePath = '/gestiondestock/v1/commandesfournisseurs/update/article/{idCommande}/{idLigneCommande}/{idProduit}';
+  static readonly updateProduitPath = '/gestiondestock/v1/commandesfournisseurs/update/produit/{idCommande}/{idLigneCommande}/{idProduit}';
   static readonly updateEtatCommandePath = '/gestiondestock/v1/commandesfournisseurs/update/etat/{idCommande}/{etatCommande}';
   static readonly updateFournisseurPath = '/gestiondestock/v1/commandesfournisseurs/update/fournisseur/{idCommande}/{idFournisseur}';
   static readonly updateQuantiteCommandePath = '/gestiondestock/v1/commandesfournisseurs/update/quantite/{idCommande}/{idLigneCommande}/{quantite}';
@@ -118,7 +118,7 @@ class CommandefournisseurService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/gestiondestock/v1/commandesfournisseurs/delete/article/${encodeURIComponent(String(params.idCommande))}/${encodeURIComponent(String(params.idLigneCommande))}`,
+      this.rootUrl + `/gestiondestock/v1/commandesfournisseurs/delete/produit/${encodeURIComponent(String(params.idCommande))}/${encodeURIComponent(String(params.idLigneCommande))}`,
       __body,
       {
         headers: __headers,
@@ -255,7 +255,7 @@ class CommandefournisseurService extends __BaseService {
   }
 
   /**
-   * @param params The `CommandefournisseurService.UpdateArticleParams` containing the following parameters:
+   * @param params The `CommandefournisseurService.UpdateProduitParams` containing the following parameters:
    *
    * - `idProduit`:
    *
@@ -265,7 +265,7 @@ class CommandefournisseurService extends __BaseService {
    *
    * @return successful operation
    */
-  updateArticleResponse(params: CommandefournisseurService.UpdateArticleParams): __Observable<__StrictHttpResponse<CommandeFournisseurDto>> {
+  updateProduitResponse(params: CommandefournisseurService.UpdateProduitParams): __Observable<__StrictHttpResponse<CommandeFournisseurDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -274,7 +274,7 @@ class CommandefournisseurService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'PATCH',
-      this.rootUrl + `/gestiondestock/v1/commandesfournisseurs/update/article/${encodeURIComponent(String(params.idCommande))}/${encodeURIComponent(String(params.idLigneCommande))}/${encodeURIComponent(String(params.idProduit))}`,
+      this.rootUrl + `/gestiondestock/v1/commandesfournisseurs/update/produit/${encodeURIComponent(String(params.idCommande))}/${encodeURIComponent(String(params.idLigneCommande))}/${encodeURIComponent(String(params.idProduit))}`,
       __body,
       {
         headers: __headers,
@@ -290,7 +290,7 @@ class CommandefournisseurService extends __BaseService {
     );
   }
   /**
-   * @param params The `CommandefournisseurService.UpdateArticleParams` containing the following parameters:
+   * @param params The `CommandefournisseurService.UpdateProduitParams` containing the following parameters:
    *
    * - `idProduit`:
    *
@@ -300,8 +300,8 @@ class CommandefournisseurService extends __BaseService {
    *
    * @return successful operation
    */
-  updateArticle(params: CommandefournisseurService.UpdateArticleParams): __Observable<CommandeFournisseurDto> {
-    return this.updateArticleResponse(params).pipe(
+  updateProduit(params: CommandefournisseurService.UpdateProduitParams): __Observable<CommandeFournisseurDto> {
+    return this.updateProduitResponse(params).pipe(
       __map(_r => _r.body as CommandeFournisseurDto)
     );
   }
@@ -500,9 +500,9 @@ module CommandefournisseurService {
   }
 
   /**
-   * Parameters for updateArticle
+   * Parameters for updateProduit
    */
-  export interface UpdateArticleParams {
+  export interface UpdateProduitParams {
     idProduit: number;
     idLigneCommande: number;
     idCommande: number;

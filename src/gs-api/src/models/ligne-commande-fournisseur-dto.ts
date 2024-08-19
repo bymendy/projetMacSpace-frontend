@@ -1,11 +1,11 @@
 /* tslint:disable */
-import { ProduitDto } from './produit-dto';
 import { CommandeFournisseur } from './commande-fournisseur';
+import { ProduitDto } from './produit-dto';
 export interface LigneCommandeFournisseurDto {
-  article?: ProduitDto;
   commandeFournisseur?: CommandeFournisseur;
   id?: number;
   idEntreprise?: number;
   prixUnitaire?: number;
+  produit?: ProduitDto;
   quantite?: number;
 }

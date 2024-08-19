@@ -7,6 +7,7 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
+import { InterventionsDto } from '../models/interventions-dto';
 import { InterventionClientDto } from '../models/intervention-client-dto';
 import { LigneInterventionClientDto } from '../models/ligne-intervention-client-dto';
 @Injectable({
@@ -24,6 +25,9 @@ class InterventionsService extends __BaseService {
   static readonly updateEtatCommandePath = '/gestiondestock/v1/interventions/update/etat/{idCommande}/{etatCommande}';
   static readonly updateQuantiteCommandePath = '/gestiondestock/v1/interventions/update/quantite/{idCommande}/{idLigneCommande}/{quantite}';
   static readonly findByIdPath = '/gestiondestock/v1/interventions/{idInterventionClient}';
+  static readonly delete_1Path = '/gestiondestock/v1/interventions/delete/{idIntervention}';
+  static readonly findByCode_1Path = '/gestiondestock/v1/interventions/{codeIntervention}';
+  static readonly findById_1Path = '/gestiondestock/v1/interventions/{idIntervention}';
 
   constructor(
     config: __Configuration,
@@ -35,7 +39,7 @@ class InterventionsService extends __BaseService {
   /**
    * @return successful operation
    */
-  findAllResponse(): __Observable<__StrictHttpResponse<Array<InterventionClientDto>>> {
+  findAllResponse(): __Observable<__StrictHttpResponse<Array<InterventionsDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -52,16 +56,16 @@ class InterventionsService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<InterventionClientDto>>;
+        return _r as __StrictHttpResponse<Array<InterventionsDto>>;
       })
     );
   }
   /**
    * @return successful operation
    */
-  findAll(): __Observable<Array<InterventionClientDto>> {
+  findAll(): __Observable<Array<InterventionsDto>> {
     return this.findAllResponse().pipe(
-      __map(_r => _r.body as Array<InterventionClientDto>)
+      __map(_r => _r.body as Array<InterventionsDto>)
     );
   }
 
@@ -69,7 +73,7 @@ class InterventionsService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveResponse(body?: InterventionClientDto): __Observable<__StrictHttpResponse<InterventionClientDto>> {
+  saveResponse(body?: InterventionsDto): __Observable<__StrictHttpResponse<InterventionsDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -87,7 +91,7 @@ class InterventionsService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<InterventionClientDto>;
+        return _r as __StrictHttpResponse<InterventionsDto>;
       })
     );
   }
@@ -95,9 +99,9 @@ class InterventionsService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  save(body?: InterventionClientDto): __Observable<InterventionClientDto> {
+  save(body?: InterventionsDto): __Observable<InterventionsDto> {
     return this.saveResponse(body).pipe(
-      __map(_r => _r.body as InterventionClientDto)
+      __map(_r => _r.body as InterventionsDto)
     );
   }
 
@@ -255,7 +259,7 @@ class InterventionsService extends __BaseService {
   }
 
   /**
-   * @param params The `InterventionsService.UpdateArticleParams` containing the following parameters:
+   * @param params The `InterventionsService.UpdateProduitParams` containing the following parameters:
    *
    * - `idProduit`:
    *
@@ -265,7 +269,7 @@ class InterventionsService extends __BaseService {
    *
    * @return successful operation
    */
-  updateArticleResponse(params: InterventionsService.UpdateArticleParams): __Observable<__StrictHttpResponse<InterventionClientDto>> {
+  updateProduitResponse(params: InterventionsService.UpdateProduitParams): __Observable<__StrictHttpResponse<InterventionClientDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -274,7 +278,7 @@ class InterventionsService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'PATCH',
-      this.rootUrl + `/gestiondestock/v1/interventions/update/article/${encodeURIComponent(String(params.idCommande))}/${encodeURIComponent(String(params.idLigneCommande))}/${encodeURIComponent(String(params.idProduit))}`,
+      this.rootUrl + `/gestiondestock/v1/interventions/update/produit/${encodeURIComponent(String(params.idCommande))}/${encodeURIComponent(String(params.idLigneCommande))}/${encodeURIComponent(String(params.idProduit))}`,
       __body,
       {
         headers: __headers,
@@ -290,7 +294,7 @@ class InterventionsService extends __BaseService {
     );
   }
   /**
-   * @param params The `InterventionsService.UpdateArticleParams` containing the following parameters:
+   * @param params The `InterventionsService.UpdateProduitParams` containing the following parameters:
    *
    * - `idProduit`:
    *
@@ -300,8 +304,8 @@ class InterventionsService extends __BaseService {
    *
    * @return successful operation
    */
-  updateArticle(params: InterventionsService.UpdateArticleParams): __Observable<InterventionClientDto> {
-    return this.updateArticleResponse(params).pipe(
+  updateProduit(params: InterventionsService.UpdateProduitParams): __Observable<InterventionClientDto> {
+    return this.updateProduitResponse(params).pipe(
       __map(_r => _r.body as InterventionClientDto)
     );
   }
@@ -487,6 +491,112 @@ class InterventionsService extends __BaseService {
       __map(_r => _r.body as InterventionClientDto)
     );
   }
+
+  /**
+   * @param idIntervention undefined
+   */
+  delete_1Response(idIntervention: number): __Observable<__StrictHttpResponse<null>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'DELETE',
+      this.rootUrl + `/gestiondestock/v1/interventions/delete/${encodeURIComponent(String(idIntervention))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<null>;
+      })
+    );
+  }
+  /**
+   * @param idIntervention undefined
+   */
+  delete_1(idIntervention: number): __Observable<null> {
+    return this.delete_1Response(idIntervention).pipe(
+      __map(_r => _r.body as null)
+    );
+  }
+
+  /**
+   * @param codeIntervention undefined
+   * @return successful operation
+   */
+  findByCode_1Response(codeIntervention: string): __Observable<__StrictHttpResponse<InterventionsDto>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gestiondestock/v1/interventions/${encodeURIComponent(String(codeIntervention))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<InterventionsDto>;
+      })
+    );
+  }
+  /**
+   * @param codeIntervention undefined
+   * @return successful operation
+   */
+  findByCode_1(codeIntervention: string): __Observable<InterventionsDto> {
+    return this.findByCode_1Response(codeIntervention).pipe(
+      __map(_r => _r.body as InterventionsDto)
+    );
+  }
+
+  /**
+   * @param idIntervention undefined
+   * @return successful operation
+   */
+  findById_1Response(idIntervention: number): __Observable<__StrictHttpResponse<InterventionsDto>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gestiondestock/v1/interventions/${encodeURIComponent(String(idIntervention))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<InterventionsDto>;
+      })
+    );
+  }
+  /**
+   * @param idIntervention undefined
+   * @return successful operation
+   */
+  findById_1(idIntervention: number): __Observable<InterventionsDto> {
+    return this.findById_1Response(idIntervention).pipe(
+      __map(_r => _r.body as InterventionsDto)
+    );
+  }
 }
 
 module InterventionsService {
@@ -500,9 +610,9 @@ module InterventionsService {
   }
 
   /**
-   * Parameters for updateArticle
+   * Parameters for updateProduit
    */
-  export interface UpdateArticleParams {
+  export interface UpdateProduitParams {
     idProduit: number;
     idLigneCommande: number;
     idCommande: number;

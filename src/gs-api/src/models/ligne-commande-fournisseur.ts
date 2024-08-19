@@ -1,13 +1,13 @@
 /* tslint:disable */
-import { Produit } from './produit';
 import { CommandeFournisseur } from './commande-fournisseur';
+import { Produit } from './produit';
 export interface LigneCommandeFournisseur {
-  produit?: Produit;
   commandeFournisseur?: CommandeFournisseur;
   creationDate?: number;
   id?: number;
   idEntreprise?: number;
   lastModifiedDate?: number;
   prixUnitaire?: number;
+  produit?: Produit;
   quantite?: number;
 }
